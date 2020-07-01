@@ -1,0 +1,203 @@
+
+ <div class="container MyContainer" >
+    <form (ngSubmit)="onSignUpDataFunction()" #SignUpDataForm="ngForm">
+
+      <div class="form-row">
+        <div class="col-md-12 mb-3">
+          <button class="btn btn-outline-primary" (click)="onSwitch()"> Switch to {{userType == true ? 'Saller':'Customer' }}</button>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="col-md-12 mb-3">
+          <input type="file" class="form-control is-valid"  ngModel name="IMAGE"  required>
+        </div>
+      </div>
+      <!--/**********************************************************************************************************/-->
+
+      <div class="form-row">
+        <div class="col-md-6 mb-3">
+          <label >First name</label>
+          <input type="text" class="form-control is-valid"  placeholder="First name"  ngModel name="FIRSTNAME" required minlength="7" #FirstNameValidation="ngModel"  >
+
+          <div class="invalid-feedback" *ngIf="!FirstNameValidation.valid && FirstNameValidation.touched">
+            Please choose a Valid Name.
+          </div>
+
+          <div class="valid-feedback" *ngIf="FirstNameValidation.valid && FirstNameValidation.touched">
+            Looks good!
+          </div>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label >Last name</label>
+          <input type="text" class="form-control is-valid"  placeholder="Last name"  ngModel name="LASTNAME" required minlength="3" #LastNameValidation="ngModel" >
+
+          <div class="invalid-feedback" *ngIf="!LastNameValidation.valid && LastNameValidation.touched">
+            Please choose a Valid Name.
+          </div>
+
+          <div class="valid-feedback" *ngIf="LastNameValidation.valid && LastNameValidation.touched">
+            Looks good!
+          </div>
+        </div>
+
+      </div>
+      <!--/**********************************************************************************************************/-->
+
+      <div class="form-row">
+        <div class="col-md-6 mb-3">
+          <label >Phone</label>
+          <input type="tel" class="form-control is-valid"  placeholder="Phone" ngModel name="PHONE" required minlength="11" maxlength="11" #phoneValidation="ngModel">
+
+          <div class="invalid-feedback" *ngIf="!phoneValidation.valid && phoneValidation.touched">
+            Please choose a Valid Phone.
+          </div>
+
+          <div class="valid-feedback" *ngIf="phoneValidation.valid && phoneValidation.touched">
+            Looks good!
+          </div>
+
+        </div>
+        <div class="col-md-6 mb-3">
+          <label >Date of Birth</label>
+          <input type="date" class="form-control is-valid"  ngModel name="DATE" required #dataValidation="ngModel">
+          <div class="invalid-feedback" *ngIf="!dataValidation.valid && dataValidation.touched">
+            Please choose a valid Date.
+          </div>
+
+          <div class="valid-feedback" *ngIf="dataValidation.valid && dataValidation.touched">
+            Looks good!
+          </div>
+        </div>
+
+      </div>
+
+<!--/**********************************************************************************************************/-->
+
+      <div class="form-row">
+
+        <div class="col-md-6 mb-3">
+          <label >Email</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text" >@</span>
+            </div>
+            <input type="text" class="form-control is-invalid"  placeholder="Email" aria-describedby="inputGroupPrepend3" ngModel name="EMAIL" required email #emailValidation="ngModel">
+            <div class="invalid-feedback" *ngIf="!emailValidation.valid && emailValidation.touched">
+              Please choose a Valid Email.
+            </div>
+
+            <div class="valid-feedback" *ngIf="emailValidation.valid && emailValidation.touched">
+              Looks good!
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-md-6 mb-3">
+          <label >Password</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text" > <li class="fa fa-key"></li> </span>
+            </div>
+            <input type="password" class="form-control is-invalid"  placeholder="Password" aria-describedby="inputGroupPrepend3" ngModel name="PASSWORD" required minlength="10" #passwordValidation="ngModel">
+            <div class="invalid-feedback" *ngIf="!passwordValidation.valid && passwordValidation.touched">
+              Please choose a Valid Password.
+            </div>
+
+            <div class="valid-feedback" *ngIf="passwordValidation.valid && passwordValidation.touched">
+              Looks good!
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!--/**********************************************************************************************************/-->
+
+
+      <div class="form-row" *ngIf="!userType">
+        <div class="col-md-6 mb-3">
+          <label >City</label>
+          <input type="text" class="form-control is-invalid"  placeholder="City" ngModel name="CITY" required #CityValidation="ngModel">
+          <div class="invalid-feedback" *ngIf="!CityValidation.valid && CityValidation.touched">
+            Please choose a valid City.
+          </div>
+
+          <div class="valid-feedback" *ngIf="CityValidation.valid && CityValidation.touched">
+            Looks good!
+          </div>
+        </div>
+        <div class="col-md-3 mb-3">
+          <label >State</label>
+          <input type="text" class="form-control is-invalid"  placeholder="State" ngModel name="STATE" required #StateValidation="ngModel">
+          <div class="invalid-feedback" *ngIf="!StateValidation.valid && StateValidation.touched">
+            Please choose a valid State.
+          </div>
+
+          <div class="valid-feedback" *ngIf="StateValidation.valid && StateValidation.touched">
+            Looks good!
+          </div>
+        </div>
+        <div class="col-md-3 mb-3">
+          <label >Code</label>
+          <input type="text" class="form-control is-invalid"  placeholder="Code" ngModel name="CODE" required minlength="3" maxlength="3" #CodeValidation="ngModel">
+          <div class="invalid-feedback" *ngIf="!CodeValidation.valid && CodeValidation.touched">
+            Please choose a  valid Code.
+          </div>
+
+          <div class="valid-feedback" *ngIf="CodeValidation.valid && CodeValidation.touched">
+            Looks good!
+          </div>
+        </div>
+      </div>
+
+
+      <div class="form-row" *ngIf="!userType">
+        <div class="col-md-12">
+          <label>Your Page </label>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">https://example.com/users/</span>
+            </div>
+            <input type="url" class="form-control" aria-describedby="basic-addon3" placeholder="FaceBook or Youtube " ngModel required name="WEBSITE" #WebValidation="ngModel" >
+            <div class="invalid-feedback" *ngIf="!WebValidation.valid && WebValidation.touched">
+              Please choose a valid URL.
+            </div>
+
+            <div class="valid-feedback" *ngIf="WebValidation.valid && WebValidation.touched">
+              Looks good!
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+
+
+      <div class="form-group">
+        <div class="form-check">
+          <input class="form-check-input is-invalid" type="checkbox" [ngModel]=false name="AGREE"  required #AgreeVaidation="ngModel">
+          <label class="form-check-label" >
+            Agree to terms and conditions
+          </label>
+          <div class="invalid-feedback" *ngIf="!AgreeVaidation.valid && AgreeVaidation.touched">
+            Please Check
+          </div>
+
+          <div class="valid-feedback" *ngIf="AgreeVaidation.valid && AgreeVaidation.touched">
+            Looks good!
+          </div>
+        </div>
+      </div>
+
+      <button class="btn btn-primary" type="submit" [disabled]="!SignUpDataForm.valid">SignUp</button>
+      <button style="float: right" (click)="onGoToLoginForm()" type="button" class="btn btn-outline-danger">Login</button>
+
+    </form>
+  </div>
+
+
+
+

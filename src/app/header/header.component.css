@@ -1,0 +1,52 @@
+input[type=search]{
+  width: 40%;
+  margin-left: 20px;
+}
+.navbar-nav {
+  margin-right: 100px;
+}
+.navbar-nav li{
+  margin-right: 20px;
+  cursor: pointer;
+}
+.testPhoto img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/**********setting */
+.Setting{
+  position: fixed;
+  width: 250px;
+  right: 30px;
+  top: 64px;
+  z-index: 1000;
+  background-color: lightgray;
+}
+.Setting li{
+  letter-spacing: 2px;
+  font-size:20px;
+  font-family: "Bitstream Charter";
+  background-color: #efebeb;
+}
+.Setting li button{
+  letter-spacing: 2px;
+  font-size:20px;
+  font-family: "Bitstream Charter";
+}
+/************** notifications ***/
+.Notifications{
+  position: fixed;
+  z-index: 1000;
+  left: 50%;
+  top: 50px;
+  width: 650px;
+  height: 600px;
+  background-color: #cccccc;
+  overflow-y: scroll;
+}
+::-webkit-scrollbar{
+  display: none;
+}

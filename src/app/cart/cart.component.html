@@ -1,0 +1,43 @@
+<div class="row d-flex justify-content-center  Content" >
+        <section class="col-md-7 offest-1 Items" style="height: 90vh;  overflow-y: scroll;" >
+            
+            <div class="container row  Cart" *ngFor="let cart of carts" >
+                <div class="col-sm-3" >
+                    <img style="width: 100%; height: 100%;" [src]='cart.imag'>
+                </div>
+                <div class=" col-sm-9">
+                    
+                    <h3> Name : <small> {{cart.name}} </small></h3>
+                    <h3> Ordered  : <small> {{cart.Time}} </small></h3>
+                    <h3> Price : <small> {{cart.price}} EGY</small></h3>
+                    <h3> Chef : <small> {{cart.chef}} </small></h3>
+
+                </div>
+            </div>
+
+        </section>
+
+        <section class="col-md-4 Summary" style=" height: 80vh; ">
+        
+            <div class="container Summary-det">
+                    <h1 class="text-center">Summary</h1>
+                    <br><BR>
+
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <h5>Total Orders</h5> 
+                            <small style="float:right ; font-size: 20px;">25 Orders</small>
+                        </li>
+                      
+                        <li class="list-group-item">
+                            <h5>Total Price</h5> 
+                            <small style="float:right ; font-size: 20px;">200  EGY</small>
+                        </li>
+
+
+                      </ul>
+
+            </div>
+
+        </section>
+</div>

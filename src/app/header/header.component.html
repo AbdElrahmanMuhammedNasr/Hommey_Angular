@@ -1,0 +1,71 @@
+
+<nav class="navbar fixed-top navbar-expand-lg  navbar-dark bg-dark" >
+
+  <a style="color: white" class="navbar-brand AskClass "> <span class="logo">Homeey </span></a>
+
+  <div class="collapse navbar-collapse" >
+
+      <input  type="search" class="form-control SearchInput" placeholder="Search for people or prodect">
+
+
+    <ul class="navbar-nav m-auto">
+            <li class="nav-item my-2 my-lg-0 ">
+              <a class="nav-link"  routerLink="/home"> <span class="fa fa-home" style="font-size: 20px; width:50px; text-align: center"></span></a>
+            </li>
+
+            <li class="nav-item my-2 my-lg-0 " *ngIf="login" (click)="onShowNotifications()">
+              <a class="nav-link" >
+                <span class="fa fa-bell" style="font-size: 20px; width:50px; text-align: center"></span>
+                <span class="badge badge-danger " style="font-size: 13px;">14</span>
+              </a>
+            </li>
+
+          <li class="nav-item my-2 my-lg-0 " *ngIf="!login">
+            <a class="nav-link"  routerLink="/login"> <span class="fa fa-sign-in" style="font-size: 13px; width:50px; text-align: center"></span>  </a>
+          </li>
+
+
+    </ul>
+
+    <ul class="navbar-nav ml-auto" *ngIf="login">
+
+      <li class="nav-item my-2 my-lg-0 " *ngIf="login" style="margin-right: 200px;" (click)="onShowCarts()">
+        <a class="nav-link" >
+          <span class="fa fa-shopping-cart" style="font-size: 20px; width:50px; text-align: center"></span>
+          <span class="badge badge-primary "style="font-size: 15px;">20</span>
+
+        </a>
+      </li>
+
+      <li class="nav-item my-2 my-lg-0 " >
+        <span class="nav-link"> MyName </span>
+      </li>
+
+      <div class="testPhoto" (click)="onShowMenu()">
+          <img  src="https://geekandgear.com/wp-content/uploads/2019/02/aaron-taylor-johnson-joins-kick-ass-directors-kingsman-prequel.jpg">
+      </div>
+
+    </ul>
+
+  </div>
+
+</nav>
+
+
+
+<div class="Setting" *ngIf="clickPhoto">
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action"  routerLink="/profile" role="tab" aria-controls="profile">Profile <i class="fa fa-user" style="float: right; font-size: 20px"></i> </a>
+      <a class="list-group-item list-group-item-action"  href="#" role="tab" aria-controls="liked">Liked <i class="fa fa-heart" style="float: right; font-size: 20px"></i> </a>
+
+      <a class="list-group-item list-group-item-action"  href="#" role="tab" aria-controls="settings">Setting  <i class="fa fa-cogs" style="float: right; font-size: 20px"></i> </a>
+      <a class="list-group-item list-group-item-action"  role="tab" aria-controls=""> <button class="btn btn-outline-danger"   style="width: 100%" (click)="onLogOut()">Logout </button></a>
+    </div>
+</div>
+
+<div class="Notifications" *ngIf="clickBell">
+  <app-notes></app-notes>
+</div>
+
+
+

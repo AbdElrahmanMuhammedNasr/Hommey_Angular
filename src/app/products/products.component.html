@@ -1,0 +1,55 @@
+<!-- <script src="../../../node_modules/animejs/lib/anime.js"></script> -->
+
+
+<div *ngIf="ListOfPro.length == 0" class="d-flex justify-content-center" style="margin-top: 30vh;">
+  <app-loading></app-loading>
+</div>
+
+
+<div class="card-columns">
+
+  <div class="card" *ngFor="let item of ListOfPro" >
+    <div class="card-body" style="text-align: center">
+      <div class="form-row">
+        <section class="col-md-2" *ngIf="isLogin !=null ">
+          <i  class="HEART fa fa-heart"  [ngStyle]="{'color': ListOfFavor.includes(item.id)?'red':''}"  style="font-size: 35px;" (click)="onAddFavourite(item.id)"></i>
+        </section>
+        <section class="col">
+          <h4 class="card-title">{{item.name}}</h4>
+        </section>
+
+      </div>
+    </div>
+
+    <div style="text-align: center">
+      <img class="PHOTO card-img-top " style="box-shadow: 0px 3px 2px black"  [src]='item.image' alt="Card image cap" (click)="onGetProductDetails(item.id)">
+    </div>
+
+    <div class="card-body" style="text-align: center">
+      <h4 class="card-title"> Price -  {{item.price}} - EGP</h4>
+    </div>
+
+<!--    <p class="card-text" style="color: darkgrey">Price {{item.price}}</p>-->
+ <!--    <div class="card-footer">-->
+<!--      <small class="text-muted"> Posted 3 mins ago</small>-->
+<!--    </div>-->
+<!--    <div class="card-footer">-->
+<!--      <small class="text-muted"> {{item.rate}} /5</small>-->
+<!--    </div>-->
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<div>
+  <router-outlet></router-outlet>
+<!--  <app-product-details></app-product-details>-->
+</div>
+
+<!--/**********************************************/-->

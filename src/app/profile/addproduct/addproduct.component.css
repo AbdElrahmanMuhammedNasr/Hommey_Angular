@@ -1,0 +1,61 @@
+.Pop{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    opacity: 0.9;
+    z-index: 50;
+  }
+  .productDetail{
+    position: fixed;
+    top :-80%;
+    left: 20%;
+    background: #FFF;
+    width: 60%;
+    height: 55rem;
+    padding: 20px;
+    border-radius: 20px;
+    z-index: 100;
+    opacity: 0;
+  
+    animation-name: comeFromUp;
+    animation-duration:1s;
+    animation-fill-mode: forwards;
+  }
+  @keyframes comeFromUp {
+      form{
+        transform: translateY(0px);
+        opacity: 0;
+  
+      }
+      to{
+        transform: translateY(90vh);
+        opacity: 1;
+      }
+  }
+  
+  .fa-times:hover {
+    transform: scale(1.5);
+  }
+  
+  .productPhoto{
+    transform: scale(0.9);
+  }
+  
+  .productPhoto:hover{
+    transform: scale(1);
+  }
+  .orderButton:hover{
+    transform: scale(1.1);
+  }
+  .list-group{
+    height: 300px;
+    overflow-y: scroll;
+  }
+  
+  .chefPhoto:hover{
+    transform: scale(1.3);
+  }
+  

@@ -1,0 +1,29 @@
+
+.Content{
+}
+.Content .Items .Cart{
+    margin-top: 20px;
+    border: 2px solid gray;
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px gray;
+    transform: scale(0.9);
+    padding: 20px;
+}
+.Content .Summary{
+
+}
+.Content .Summary .Summary-det{
+    height: 60vh;
+    padding: 50px;
+    margin-top: 50px;
+    border: 2px solid #797979;
+    border-radius: 5px;
+}
+
+.Content .Summary .Summary-det ul li{
+    margin-top: 20px;
+    box-shadow: 10px 10px 10px gray;
+}
+::-webkit-scrollbar {
+    display: none;
+  }

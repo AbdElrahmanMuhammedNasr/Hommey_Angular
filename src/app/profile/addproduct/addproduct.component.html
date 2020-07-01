@@ -1,0 +1,115 @@
+<div class="Pop"></div>
+<div class="productDetail">
+
+  <div class="form-row">
+    <div class="form-group col-md-12">
+      <li class="fa fa-times" style="font-size: 25px;float: right; cursor: pointer" (click)="onClose()"></li>
+    </div>
+  </div>
+
+  <div class="form-row" style="height: 25rem">
+    <div class="container MyContainer" >
+
+
+        <div *ngIf='localUrl!=null' class="container row">
+          <div class="col-md-12 mb-3" style="margin-left: 42%;">
+            <img style="height: 200px; width: 200px; border-radius: 50%;" [src]="localUrl" >
+          </div>
+        </div>
+        <br><Br>
+
+
+      
+        <form (ngSubmit)="onAddNewPro()" #AddNewPro="ngForm">
+
+            <div class="form-row">
+                <div class="col-md-12 mb-3">
+                  <input type="file" class="form-control is-valid" ngModel name="image"  (change)="showPreviewImage($event)">
+                </div>
+              </div>
+            
+
+          <!--/**********************************************************************************************************/-->
+    
+          <div class="form-row">
+            <div class="col-md-6 mb-3">
+              <label >Name</label>
+              <input type="text" class="form-control is-valid"  placeholder="Name"  ngModel name="name" required minlength="7" #FirstNameValidation="ngModel"  >
+    
+              <div class="invalid-feedback" *ngIf="!FirstNameValidation.valid && FirstNameValidation.touched">
+                Please choose a Valid Name.
+              </div>
+    
+              <div class="valid-feedback" *ngIf="FirstNameValidation.valid && FirstNameValidation.touched">
+                Looks good!
+              </div>
+            </div>
+
+            <div class="col-md-6 mb-3">
+              <label >Price</label>
+              <input type="text" class="form-control is-valid"  placeholder="Price"  ngModel name="price" required minlength="2" #LastNameValidation="ngModel" >
+    
+              <div class="invalid-feedback" *ngIf="!LastNameValidation.valid && LastNameValidation.touched">
+                Please choose a Valid Name.
+              </div>
+    
+              <div class="valid-feedback" *ngIf="LastNameValidation.valid && LastNameValidation.touched">
+                Looks good!
+              </div>
+            </div>
+    
+          </div>
+          <!--/**********************************************************************************************************/-->
+    
+
+          <div class="form-row">
+            <div class="col-md-12 mb-12">
+              <label>Ingredients</label>
+              <input type="text" class="form-control is-valid"  placeholder="Ingredients splited with   *  "  ngModel name="inger" required  #ingredientsValidation="ngModel"  >
+    
+              <div class="invalid-feedback" *ngIf="!ingredientsValidation.valid && ingredientsValidation.touched">
+                Please choose a Valid Name.
+              </div>
+    
+              <div class="valid-feedback" *ngIf="ingredientsValidation.valid && ingredientsValidation.touched">
+                Looks good!
+              </div>
+            </div>
+            
+          </div>
+
+          <div class="form-row">
+            <div class="col-md-12 mb-12">
+              <label>Discribe</label>
+              <input type="text" class="form-control is-valid"  placeholder="Discribe"  ngModel name="dis" required  #DiscribeValidation="ngModel"  >
+    
+              <div class="invalid-feedback" *ngIf="!DiscribeValidation.valid && DiscribeValidation.touched">
+                Please choose a Valid Name.
+              </div>
+    
+              <div class="valid-feedback" *ngIf="DiscribeValidation.valid && DiscribeValidation.touched">
+                Looks good!
+              </div>
+            </div>
+            
+          </div>
+         
+         <br><BR><br>
+    
+
+          <div>
+            <button *ngIf="!wait" class="btn btn-primary" type="submit" [disabled]="!AddNewPro.valid">Add</button>
+            <app-loading *ngIf="wait" ></app-loading>
+          </div>
+
+    
+        </form>
+
+   </div>
+
+</div>
+
+
+
+
+

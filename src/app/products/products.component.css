@@ -1,0 +1,28 @@
+.card{
+  box-shadow: 0px 10px 15px 0px black;
+  padding: 15px;
+  height: 55vh;
+  border: 2px solid gray;
+  cursor: pointer;
+  transition: 1s;
+  transform: scale(0.9);
+  border-radius: 25px;
+}
+.card:hover{
+  transition: 1s;
+  transform: scale(1);
+}
+
+.PHOTO{
+  height: 40vh;
+  transition: 2s;
+  transform: scale(0.9);
+  border-radius: 20px;
+}
+.PHOTO:hover{
+  transition: 2s;
+  transform: scale(1);
+}
+
+
+

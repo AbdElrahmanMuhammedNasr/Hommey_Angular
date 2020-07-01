@@ -24,7 +24,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+               "./node_modules/bootstrap/dist/css/bootstrap.css",
+              "src/styles.css",
+              "./node_modules/font-awesome/css/font-awesome.css"
             ],
             "scripts": []
           },
@@ -119,6 +121,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "Hommey"
+    }
+  },
+  "defaultProject": "Hommey",
+  "cli": {
+    "analytics": "1034157b-333b-46ff-8feb-d6034820c0b9"
+  }
 }

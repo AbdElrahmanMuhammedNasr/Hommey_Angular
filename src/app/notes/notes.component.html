@@ -1,0 +1,25 @@
+<section class="note" *ngFor="let notes of sommeDummyNotes">
+
+  <div class="card">
+
+    <div class="card-header" style="padding:20px">
+      <!-- <img class="Img" [src]="notes.image"> -->
+        <img class="Img" src="https://geekandgear.com/wp-content/uploads/2019/02/aaron-taylor-johnson-joins-kick-ass-directors-kingsman-prequel.jpg">
+
+       <a href="#" style="padding:20px"> {{notes.user}}</a>
+       <span>  Ordered {{notes.order}} </span>
+       <span> {{notes.time}} </span>
+
+   
+     </div>
+     <section class="row" style="margin: 0px 15px;">
+        <button style="margin: 0px 5px;" class="btn btn-danger col">Refuse</button>
+        <button style="margin: 0px 5px;" class="btn btn-primary col" >Accept</button> 
+     </section>
+     
+    
+  </div>
+
+</section>
+
+

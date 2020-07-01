@@ -1,0 +1,74 @@
+.myContainer{
+  width: 100%;
+  margin-left: 0px;
+
+}
+
+.myContainer.Filter{
+  background-color: gray;
+}
+.myContainer.Filter ul{
+
+}
+.myContainer.Filter ul li{
+    color: white;
+}
+.myContainer.Filter ul li:hover{
+  color:black;
+}
+.myContainer .Category{
+  /*border: 1px solid red;*/
+  /*height: 50rem;*/
+  width: 100%;
+
+
+}
+.myContainer .Category .custom-select{
+  margin-top: 20px;
+
+}
+
+
+h3{
+  margin-top: 20px;
+  text-align: center;
+  letter-spacing: 3px;
+  color: gray;
+}
+
+.Filter{
+}
+
+.Filter .Place{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.Filter .PriceBar{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+
+.Filter .Type{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+/***************************/
+.prodectsPage{
+  margin-top: 50px;
+
+}
+
+.menu input{
+  height: 20px;
+  width: 20px;
+  border: none;
+  background-color: #eee;
+}
+.menu span{
+  font-size: 20px;
+  letter-spacing: 2px;
+}
+
+
