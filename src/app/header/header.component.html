@@ -16,7 +16,7 @@
             <li class="nav-item my-2 my-lg-0 " *ngIf="login" (click)="onShowNotifications()">
               <a class="nav-link" >
                 <span class="fa fa-bell" style="font-size: 20px; width:50px; text-align: center"></span>
-                <span class="badge badge-danger " style="font-size: 13px;">14</span>
+                <span *ngIf='disAppearnumberOfNots' class="badge badge-danger " style="font-size: 13px;">{{RealNumbeOfNotificatios}}</span>
               </a>
             </li>
 

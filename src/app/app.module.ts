@@ -30,6 +30,9 @@ import { AngularFireModule } from "@angular/fire";
 import { environment } from "../environments/environment";
 import { LoadingComponent } from './Z-Share/loading/loading.component';
 
+import {StoreModule} from '@ngrx/store'
+import { openNotificationReducer } from './Z-Share/Ngrx/reducer';
+
 
 
 @NgModule({
@@ -53,6 +56,7 @@ import { LoadingComponent } from './Z-Share/loading/loading.component';
     FormsModule,
     AppRouting,
     HttpClientModule,
+    StoreModule.forRoot({open: openNotificationReducer}),
     AngularFireModule.initializeApp(environment.firebaseConfig)
 
     

@@ -1,7 +1,8 @@
 import {Component, DoCheck, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {fromEvent} from 'rxjs';
-import {pluck} from 'rxjs/operators';
+import {Store} from '@ngrx/store';
+import { NotesService } from '../notes/Notes.service';
+
 
 @Component({
   selector: 'app-header',
@@ -10,25 +11,40 @@ import {pluck} from 'rxjs/operators';
 })
 export class HeaderComponent implements OnInit , DoCheck {
 
-  constructor(private router: Router) { }
+  disAppearnumberOfNots; // from state
+  constructor(private router: Router, private store: Store<any>, private notesService: NotesService) { 
+    this.store.subscribe( data =>{
+        this.disAppearnumberOfNots = data.open.notifications_number;
+        // console.log(data.open.notifications_number)
+    })
+  }
   clickPhoto = false;
   clickBell = false;
+  RealNumbeOfNotificatios ;
 
   input = document.querySelector('SearchInput');
 
   login ;
   ngOnInit(): void {
+    //  to get the number of notif..
+    this.notesService.getAllUserNotifications('abdo@abdo.com').subscribe(
+      data =>{
+        this.RealNumbeOfNotificatios =  this.notesService.notsNumber;
+      }
+    );
     this.login = localStorage.getItem('SuccessLogin');
   }
   ngDoCheck() {
     this.login = localStorage.getItem('SuccessLogin');
-    // console.log('the login in Check '+ this.login);
   }
 
   onShowMenu() {
     this.clickPhoto = ! this.clickPhoto;
   }
   onShowNotifications() {
+     //to change state
+      this.store.dispatch({type: "OPEN_NOTIFICATIONS" });
+      // to display notes
       this.clickBell = !this.clickBell;
   }
   onLogOut() {
