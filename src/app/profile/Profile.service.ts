@@ -57,8 +57,13 @@ export class ProfileService {
 
       }
       )
-    )
+    );
 
+  }
+
+  /****************** to get user data ***************************/
+  getUserData(){
+    return this.http.get('https://hommey-b9aa6.firebaseio.com/user/-MChWlBksIIXsigomVJY');
   }
 
 

@@ -17,12 +17,23 @@ export class ProfileComponent implements OnInit  {
   @ViewChild('AddNewComment') addReview:NgForm;
 
 
-  myFoodList = []
+  myFoodList = [];
   obj: any;
 
+  // USER = {
+  //   AGREE: any,
+  //   DATE: any,
+  //   EMAIL: any,
+  //   FIRSTNAME: any,
+  //   IMAGE: any,
+  //   LASTNAME: any,
+  //   PASSWORD: any,
+  //   PHONE,
+  // };
+
   user = {
-     image:'https://cdn.shopify.com/s/files/1/0045/5104/9304/files/AC_ECOM_SITE_2020_REFRESH_1_INDEX_M2_THUMBS-V2-1.jpg?v=1581100935',
-      name:'Tamer Ali',
+     image: 'https://cdn.shopify.com/s/files/1/0045/5104/9304/files/AC_ECOM_SITE_2020_REFRESH_1_INDEX_M2_THUMBS-V2-1.jpg?v=1581100935',
+      name: 'Tamer Ali',
       job:'Sinor Chef',
       born:'August 8, 1998',
       email:'abdo@gmail.com',
@@ -42,13 +53,21 @@ export class ProfileComponent implements OnInit  {
 
 
   ngOnInit(): void {
+    /**********************get user data***********************/
+    this.profileService.getUserData().subscribe(
+      data => {
+        // this.USER = data;
+        // console.log(this.USER);
+      }
+    );
+    /************************get comment***********************************/
     this.profileService.getAllComment(this.user.email).subscribe(
-      data =>{
+      data => {
         this.reviewPeople = data;
         console.log(data);
       }
     );
-  
+
     /****************************** Food ********************************* */
     this.profileService.getAllUserPosts(localStorage.getItem('theEmail'))
     .subscribe(
@@ -61,7 +80,7 @@ export class ProfileComponent implements OnInit  {
 
 
 
-  
+
 
   onAddReview(){
     this.obj = {
@@ -79,7 +98,7 @@ export class ProfileComponent implements OnInit  {
     );
     this.reviewPeople.push(this.obj);
     this.addReview.reset();
-  
+
   }
 
 
@@ -88,7 +107,7 @@ export class ProfileComponent implements OnInit  {
     console.log(id);
     this.profileService.deletePost(itemId);
     this.myFoodList.splice(id, 1);
-  
+
   }
 
   onGetOptions() {
