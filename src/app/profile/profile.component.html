@@ -4,16 +4,16 @@
       <div class="col-md-1 col-lg-2"></div>
       <div class="col-md-10 col-lg-8">
         <div class="intro">
-          <div class="profile-img"><img [src]="user.image"></div>
+          <div class="profile-img"><img [src]="USER.image"></div>
 
-          <h2><b>{{user.name}}</b></h2>
+          <h2><b>{{USER.firstName}} {{USER.lastName}}</b></h2>
           <h4 class="font-yellow">Key Account Manager</h4>
           <i class="fa fa-ellipsis-h" style="cursor: pointer;" (click)='onGetOptions()'></i>
 
           <ul class="information margin-tb-30">
-            <li><b>Born : </b>{{user.born}}</li>
-            <li><b>Emai : </b>{{user.email}}</li>
-            <!-- <li><b>Marital Status : </b>{{user.status}}</li> -->
+            <li><b>Born : </b>{{USER.date}}</li>
+            <li><b>Emai : </b>{{USER.email}}</li>
+            <li><b>Phone : </b>{{USER.phone}}</li>
           </ul>
           <ul class="social-icons">
             <li><a href="https://www.facebook.com"><i class="fa fa-facebook"></i></a></li>

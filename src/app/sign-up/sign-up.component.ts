@@ -16,6 +16,7 @@ export class SignUpComponent implements OnInit {
   userType = true;
   LoginData: any;
   otherData: any;
+  localUrl: any;
 
 
 
@@ -23,6 +24,14 @@ export class SignUpComponent implements OnInit {
 
   onSwitch() {
     this.userType = !this.userType;
+  }
+
+  showPreviewImage(event: any) {
+    if (event.target.files && event.target.files[0]) {
+        var reader = new FileReader();
+        reader.onload = (event: any) => {this.localUrl = event.target.result;}
+        reader.readAsDataURL(event.target.files[0]);
+   }
   }
 
   onSignUpDataFunction() {
@@ -33,9 +42,9 @@ export class SignUpComponent implements OnInit {
     };
   
     this.otherData={
-      image:this.signUp.value.IMAGE,
+      image:this.localUrl,
       firstName:this.signUp.value.FIRSTNAME,
-      lastName:this.signUp.value.LASTNAEM,
+      lastName:this.signUp.value.LASTNAME,
       phone:this.signUp.value.PHONE,
       date:this.signUp.value.DATE,
       email:this.signUp.value.EMAIL,

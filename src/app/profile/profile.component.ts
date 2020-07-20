@@ -20,16 +20,7 @@ export class ProfileComponent implements OnInit  {
   myFoodList = [];
   obj: any;
 
-  // USER = {
-  //   AGREE: any,
-  //   DATE: any,
-  //   EMAIL: any,
-  //   FIRSTNAME: any,
-  //   IMAGE: any,
-  //   LASTNAME: any,
-  //   PASSWORD: any,
-  //   PHONE,
-  // };
+  USER = {};
 
   user = {
      image: 'https://cdn.shopify.com/s/files/1/0045/5104/9304/files/AC_ECOM_SITE_2020_REFRESH_1_INDEX_M2_THUMBS-V2-1.jpg?v=1581100935',
@@ -56,8 +47,8 @@ export class ProfileComponent implements OnInit  {
     /**********************get user data***********************/
     this.profileService.getUserData().subscribe(
       data => {
-        // this.USER = data;
-        // console.log(this.USER);
+        this.USER = data;
+        console.log(this.USER);
       }
     );
     /************************get comment***********************************/
