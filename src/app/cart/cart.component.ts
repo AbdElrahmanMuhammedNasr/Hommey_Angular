@@ -8,16 +8,20 @@ import { CartService } from './cart.service';
 })
 export class CartComponent implements OnInit {
 
-  carts :any ;
-  constructor(private cartService:CartService) { }
+  carts = [];
+  price = 0;
+  constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
     this.cartService.getUserCart(localStorage.getItem('theEmail')).subscribe(
-      data =>{
+      data => {
         this.carts = data;
-        console.log(this.carts)
       }
     );
+
+    this.carts.map(ele => {
+      this.price = this.price + ele.price;
+    });
   }
 
 }

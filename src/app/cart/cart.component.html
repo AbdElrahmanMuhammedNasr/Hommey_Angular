@@ -1,5 +1,9 @@
 <div class="row d-flex justify-content-center  Content" >
         <section class="col-md-7 offest-1 Items" style="height: 90vh;  overflow-y: scroll;" >
+
+            <div *ngIf="carts == null" style="margin: 30vh 26vw;">
+                <app-loading></app-loading>
+            </div>
             
             <div class="container row  Cart" *ngFor="let cart of carts" >
                 <div class="col-sm-3" >
@@ -26,12 +30,12 @@
                     <ul class="list-group">
                         <li class="list-group-item">
                             <h5>Total Orders</h5> 
-                            <small style="float:right ; font-size: 20px;">25 Orders</small>
+                            <small style="float:right ; font-size: 20px;">{{carts.length}} Orders</small>
                         </li>
                       
                         <li class="list-group-item">
                             <h5>Total Price</h5> 
-                            <small style="float:right ; font-size: 20px;">200  EGY</small>
+                            <small style="float:right ; font-size: 20px;">{{price}}  EGY</small>
                         </li>
 
 
