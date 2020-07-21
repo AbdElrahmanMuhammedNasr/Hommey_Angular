@@ -32,6 +32,7 @@ import { LoadingComponent } from './Z-Share/loading/loading.component';
 
 import {StoreModule} from '@ngrx/store'
 import { openNotificationReducer } from './Z-Share/Ngrx/reducer';
+import { searchProduct } from './Z-Share/Ngrx/SearchReducer';
 
 
 
@@ -56,7 +57,7 @@ import { openNotificationReducer } from './Z-Share/Ngrx/reducer';
     FormsModule,
     AppRouting,
     HttpClientModule,
-    StoreModule.forRoot({open: openNotificationReducer}),
+    StoreModule.forRoot({open: openNotificationReducer, searchPro: searchProduct}),
     AngularFireModule.initializeApp(environment.firebaseConfig)
 
     

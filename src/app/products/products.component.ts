@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {ProductsService, PostsModel} from './Products.service';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-products',
@@ -9,8 +10,18 @@ import {ProductsService, PostsModel} from './Products.service';
 })
 export class ProductsComponent implements OnInit {
 
-  constructor(private router: Router, private productsService: ProductsService) { }
-  ListOfPro : PostsModel[] = [];
+  constructor(private router: Router, private productsService: ProductsService, private store: Store<any>) {
+
+    this.store.subscribe(data => {
+      if (data.searchPro.Search_Word < 0){
+      }else{
+        this.ListOfPro = [];
+        this.onGetOneProduct(data.searchPro.Search_Word);
+      }
+    });
+
+   }
+  ListOfPro: PostsModel[] = [];
   ListOfFavor = [];
   isLogin ;
 
@@ -20,11 +31,19 @@ export class ProductsComponent implements OnInit {
   }
   onGetAllProducts() {
       this.productsService. getAllPosts().subscribe(
-        data =>{
+        data => {
           this.ListOfPro = data;
-          // console.log(this.ListOfPro[0].image);
         }
       );
+  }
+
+  onGetOneProduct(search){
+    this.productsService. getonePost(search).subscribe(
+      data => {
+        this.ListOfPro = data;
+      }
+    );
+
   }
 
   onGetProductDetails(id: number) {

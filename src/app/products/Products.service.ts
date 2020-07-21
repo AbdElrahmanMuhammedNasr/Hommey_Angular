@@ -11,7 +11,6 @@ export class ProductsService {
 
 
   getAllPosts() {
-
     
    return this.http.get('https://hommey-b9aa6.firebaseio.com/products.json')
       .pipe(
@@ -28,9 +27,29 @@ export class ProductsService {
       )
   };
 
-
+  getonePost(search){
+    return this.http.get('https://hommey-b9aa6.firebaseio.com/products.json')
+        .pipe(
+          map(resData => {
+            const posts: PostsModel[] = [];
+            for (const key in resData) {
+              if(resData[key].name == search){
+              if (resData.hasOwnProperty) {
+                posts.push({ ...resData[key], id: key });
+              }
+            }
+          }
+            return posts;
+  
+          })
+        )
+    };
 
 }
+
+
+
+
 
 
 

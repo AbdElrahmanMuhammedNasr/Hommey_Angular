@@ -15,19 +15,18 @@ export class HeaderComponent implements OnInit , DoCheck {
   constructor(private router: Router, private store: Store<any>, private notesService: NotesService) { 
     this.store.subscribe( data =>{
         this.disAppearnumberOfNots = data.open.notifications_number;
-        // console.log(data.open.notifications_number)
     })
   }
   clickPhoto = false;
   clickBell = false;
   RealNumbeOfNotificatios ;
 
-  input = document.querySelector('SearchInput');
+  // input = document.querySelector('SearchInput');
 
   login ;
   ngOnInit(): void {
     //  to get the number of notif..
-    this.notesService.getAllUserNotifications('abdo@abdo.com').subscribe(
+    this.notesService.getAllUserNotifications(localStorage.getItem('theEmail')).subscribe(
       data =>{
         this.RealNumbeOfNotificatios =  this.notesService.notsNumber;
       }
@@ -61,6 +60,9 @@ export class HeaderComponent implements OnInit , DoCheck {
 
   /**************************SEARCH******************************/
 
-
+  onSearchProduct(event){
+    // console.log(event.target.value);
+    this.store.dispatch({type:event.target.value});
+  }
 
 }
