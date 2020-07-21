@@ -3,14 +3,14 @@
             
             <div class="container row  Cart" *ngFor="let cart of carts" >
                 <div class="col-sm-3" >
-                    <img style="width: 100%; height: 100%;" [src]='cart.imag'>
+                    <img style="width: 100%; height: 100%;" [src]='cart.image'>
                 </div>
                 <div class=" col-sm-9">
                     
                     <h3> Name : <small> {{cart.name}} </small></h3>
                     <h3> Ordered  : <small> {{cart.Time}} </small></h3>
                     <h3> Price : <small> {{cart.price}} EGY</small></h3>
-                    <h3> Chef : <small> {{cart.chef}} </small></h3>
+                    <h3> Chef : <small> {{cart.chefEmail}} </small></h3>
 
                 </div>
             </div>

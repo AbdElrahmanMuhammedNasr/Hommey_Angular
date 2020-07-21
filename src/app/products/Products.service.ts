@@ -37,6 +37,7 @@ export class ProductsService {
 export class PostsModel {
 
   id: string;
+  email: string;
   name: string;
   price: number;
   ava: boolean;

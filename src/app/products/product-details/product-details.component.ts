@@ -19,6 +19,15 @@ export class ProductDetailsComponent implements OnInit {
     id;
 
   product: PostsModel;
+  cartProduct = {};
+  user: {
+    image:'',
+    data:'',
+    email:'',
+    firstName:'',
+    lastName:'',
+    phone:''
+  };
   order = false;
   notifications:any;
 
@@ -29,8 +38,16 @@ export class ProductDetailsComponent implements OnInit {
     this.productServiceService.getOnePost(this.id).subscribe(
       data => {
         this.product = data[0];
+        // console.log(this.product)
+        this.productServiceService.getTheChef(this.product.email).subscribe(
+          data=>{
+            this.user= data;
+            console.log(data);
+          }
+        );
       }
     );
+ 
     this.isLogin = localStorage.getItem('SuccessLogin');
   };
 
@@ -40,16 +57,27 @@ export class ProductDetailsComponent implements OnInit {
   orderProduct(id: string){
     this.order= true;
     this.notifications ={
-      user:"Said",
+      user:localStorage.getItem('userName'),
       order:this.product.name,
-      email:'abdo@abdo.com',
+      email:localStorage.getItem('theEmail'),
       time: new Date().toUTCString().split(' GMT')[0]
     };
-    this.productServiceService.orderProduct(this.notifications).subscribe(
+    this.productServiceService.orderProduct(this.notifications).subscribe();
+
+    this.cartProduct={
+        image: this.product.image,
+        email: localStorage.getItem('theEmail'),
+        Time: new Date().toISOString(),
+        name: this.product.name,
+        price:this.product.price,
+        chefEmail:this.product.email,
+
+    }
+    this.productServiceService.addToCart(this.cartProduct).subscribe(
       data=>{
-        console.log(data)
+        console.log(data);
       }
-    );
+  );
     // console.log(`ordered ${id}`)
   }
 

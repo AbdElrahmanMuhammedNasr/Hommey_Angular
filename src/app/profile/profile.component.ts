@@ -20,7 +20,14 @@ export class ProfileComponent implements OnInit  {
   myFoodList = [];
   obj: any;
 
-  USER = {};
+  USER = {
+    image: '',
+    firstName: '',
+    lastName: '',
+    email:'',
+    date: '',
+    phone: ''
+  };
 
   user = {
      image: 'https://cdn.shopify.com/s/files/1/0045/5104/9304/files/AC_ECOM_SITE_2020_REFRESH_1_INDEX_M2_THUMBS-V2-1.jpg?v=1581100935',

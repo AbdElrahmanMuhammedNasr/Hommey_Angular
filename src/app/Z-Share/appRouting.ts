@@ -27,6 +27,7 @@ const routes: Routes = [
     {path:'profileOptins', component:ProfileOptionsComponent},
     {path:'addProduct', component:AddproductComponent},
   ]}
+  
 ];
 
 @NgModule({
