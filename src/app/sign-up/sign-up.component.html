@@ -2,15 +2,18 @@
  <div class="container MyContainer" >
     <form (ngSubmit)="onSignUpDataFunction()" #SignUpDataForm="ngForm">
 
-      <!-- <div class="form-row">
-        <div class="col-md-12 mb-3">
-          <button class="btn btn-outline-primary" (click)="onSwitch()"> Switch to {{userType == true ? 'Saller':'Customer' }}</button>
-        </div>
-      </div> -->
+  
 
       <div class="form-row">
         <div class="col-md-12 mb-3">
           <input type="file" class="form-control is-valid"  ngModel name="IMAGE"  required (change)="showPreviewImage($event)">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="col-md-12 mb-3">
+          <label >Social Media Link</label>
+          <input type="text" class="form-control is-valid"  ngModel name="LINK"  required>
         </div>
       </div>
       <!--/**********************************************************************************************************/-->
@@ -113,84 +116,8 @@
 
       </div>
 
-      <!--/**********************************************************************************************************/-->
-
-
-      <!-- <div class="form-row" *ngIf="!userType">
-        <div class="col-md-6 mb-3">
-          <label >City</label>
-          <input type="text" class="form-control is-invalid"  placeholder="City" ngModel name="CITY" required #CityValidation="ngModel">
-          <div class="invalid-feedback" *ngIf="!CityValidation.valid && CityValidation.touched">
-            Please choose a valid City.
-          </div>
-
-          <div class="valid-feedback" *ngIf="CityValidation.valid && CityValidation.touched">
-            Looks good!
-          </div>
-        </div>
-        <div class="col-md-3 mb-3">
-          <label >State</label>
-          <input type="text" class="form-control is-invalid"  placeholder="State" ngModel name="STATE" required #StateValidation="ngModel">
-          <div class="invalid-feedback" *ngIf="!StateValidation.valid && StateValidation.touched">
-            Please choose a valid State.
-          </div>
-
-          <div class="valid-feedback" *ngIf="StateValidation.valid && StateValidation.touched">
-            Looks good!
-          </div>
-        </div>
-        <div class="col-md-3 mb-3">
-          <label >Code</label>
-          <input type="text" class="form-control is-invalid"  placeholder="Code" ngModel name="CODE" required minlength="3" maxlength="3" #CodeValidation="ngModel">
-          <div class="invalid-feedback" *ngIf="!CodeValidation.valid && CodeValidation.touched">
-            Please choose a  valid Code.
-          </div>
-
-          <div class="valid-feedback" *ngIf="CodeValidation.valid && CodeValidation.touched">
-            Looks good!
-          </div>
-        </div>
-      </div>
-
-
-      <div class="form-row" *ngIf="!userType">
-        <div class="col-md-12">
-          <label>Your Page </label>
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text">https://example.com/users/</span>
-            </div>
-            <input type="url" class="form-control" aria-describedby="basic-addon3" placeholder="FaceBook or Youtube " ngModel required name="WEBSITE" #WebValidation="ngModel" >
-            <div class="invalid-feedback" *ngIf="!WebValidation.valid && WebValidation.touched">
-              Please choose a valid URL.
-            </div>
-
-            <div class="valid-feedback" *ngIf="WebValidation.valid && WebValidation.touched">
-              Looks good!
-            </div>
-          </div>
-        </div>
-
-      </div> -->
-
-
-
-
-      <div class="form-group">
-        <div class="form-check">
-          <input class="form-check-input is-invalid" type="checkbox" [ngModel]=false name="AGREE"  required #AgreeVaidation="ngModel">
-          <label class="form-check-label" >
-            Agree to terms and conditions
-          </label>
-          <div class="invalid-feedback" *ngIf="!AgreeVaidation.valid && AgreeVaidation.touched">
-            Please Check
-          </div>
-
-          <div class="valid-feedback" *ngIf="AgreeVaidation.valid && AgreeVaidation.touched">
-            Looks good!
-          </div>
-        </div>
-      </div>
+   
+ 
 
       <button class="btn btn-primary" type="submit" [disabled]="!SignUpDataForm.valid">SignUp</button>
       <button style="float: right" (click)="onGoToLoginForm()" type="button" class="btn btn-outline-danger">Login</button>

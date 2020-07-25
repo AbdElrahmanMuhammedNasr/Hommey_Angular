@@ -25,15 +25,11 @@
 
       <div class="card" style="width: 30rem; float: right">
         <div class="card-body">
-          <h5 class="card-title"> Rate </h5>
-          <h5 class="card-title mb-3">
-            <!-- <i class="fa fa-star" style="color: gold ; margin-left: 2px" *ngFor=" let rate of product.rate"></i> -->
-
-          </h5>
-
+       
           <div class="container">
             <h6 class="card-subtitle mb-3 " style="color: black;font-size: 25px">{{product.name}}</h6>
             <p class="card-text" style="color: #5d5d5d">{{product.dis}}</p>
+            <p class="card-text" style="color: #5d5d5d">Category : {{product.category}}</p>
             <button class="orderButton card-link btn btn-primary" style="float: right" *ngIf="isLogin!=null && !order" (click)="orderProduct(product.id)" >Order This</button>
             <i *ngIf='order' class="fa fa-check" style="color: green;float: right; font-size: 30px;" aria-hidden="true"></i>
 
@@ -64,16 +60,18 @@
       <div class="card " style="width: 28rem; float: right">
         <div class="card-body">
           <h5 class="card-title" >
-            <div class="row">
-              <img  [src]='user.image' class="chefPhoto col-md-4" style="width: 100px; height: 100px; border-radius: 50%">
+            <div class="row ">
+              <section class="col-md-12 d-flex justify-content-center" >
+                <img   [src]='user.image' class="chefPhoto " style="width: 100px; height: 100px; border-radius: 50%">
+              </section>
 
-              <h5 class="card-title col-md-8">
-                <h4 class="card-title"> {{user.firstName}} {{user.lastName}}</h4>
-                <h6 class="card-title"> <a routerLink="/profile" [queryParams]="{email:user.email }" > {{user.email}} </a> </h6>
-                <h6 class="card-title"> {{user.phone}} </h6>
-
-                <!-- <i class="fa fa-star" style="color: gold ; margin-left: 2px" *ngFor=" let rate of product.chef.rate"></i> -->
-              </h5>
+              <br>
+              <section class="" style=" margin: auto;">
+                  <h4 class="card-title"> {{user.firstName}} {{user.lastName}}</h4><br>
+                  <h6 class="card-title"> <a routerLink="/profile" [queryParams]="{email:user.email }" > {{user.email}} </a> </h6><br>
+                  <h6 class="card-title"> {{user.phone}} </h6>
+              </section>
+             
 
             </div>
 

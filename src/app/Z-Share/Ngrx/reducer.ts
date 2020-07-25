@@ -1,8 +1,8 @@
 import { Action } from '@ngrx/store';
-import * as actionClass from './action'
+import * as actionClass from './action';
 
 const initalState = {
-    notifications_number:true
+    notifications_number: true,
 };
 export function openNotificationReducer(state = initalState, action: Action){
 
@@ -18,7 +18,7 @@ export function openNotificationReducer(state = initalState, action: Action){
                 notifications_number:true
             };
         default :
-            return state;  
+            return state;
 
     }
 }

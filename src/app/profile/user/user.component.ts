@@ -11,15 +11,15 @@ export class UserComponent implements OnInit {
 
   constructor(private userServie: UserService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
-  USER = 
-  {
-    image: '',
-    firstName: '',
-    lastName: '',
-    email:'',
-    date: '',
-    phone: ''
-  };
+  USER = null;
+  // {
+  //   image: '',
+  //   firstName: '',
+  //   lastName: '',
+  //   email:'',
+  //   date: '',
+  //   phone: ''
+  // };
 
   onGetOptions() {
     this.router.navigate(['/profile/profileOptins']);
@@ -37,12 +37,12 @@ export class UserComponent implements OnInit {
                 this.USER = data;
               }
             );
-          
-          
+
+
         }
     })
 
-  
+
   }
   ongetUser(){
     this.userServie.getUserData(localStorage.getItem('theEmail')).subscribe(

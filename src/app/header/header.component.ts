@@ -55,14 +55,14 @@ export class HeaderComponent implements OnInit , DoCheck {
     this.router.navigate(['/login']);
   }
   onShowCarts(){
-    this.router.navigate(['/carts'])
+    this.router.navigate(['/carts']);
   }
 
   /**************************SEARCH******************************/
 
   onSearchProduct(event){
     // console.log(event.target.value);
-    this.store.dispatch({type:event.target.value});
+    this.store.dispatch({type: event.target.value});
   }
 
 }

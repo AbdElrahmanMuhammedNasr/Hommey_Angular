@@ -16,25 +16,21 @@
             <img style="height: 200px; width: 200px; border-radius: 50%;" [src]="localUrl" >
           </div>
         </div>
-        <br><Br>
-
+        <br>
 
       
         <form (ngSubmit)="onAddNewPro()" #AddNewPro="ngForm">
-
             <div class="form-row">
                 <div class="col-md-12 mb-3">
-                  <input type="file" class="form-control is-valid" ngModel name="image"  (change)="showPreviewImage($event)">
+                  <input type="file" class="form-control" ngModel name="image"  (change)="showPreviewImage($event)">
                 </div>
               </div>
             
-
           <!--/**********************************************************************************************************/-->
-    
           <div class="form-row">
             <div class="col-md-6 mb-3">
               <label >Name</label>
-              <input type="text" class="form-control is-valid"  placeholder="Name"  ngModel name="name" required minlength="7" #FirstNameValidation="ngModel"  >
+              <input type="text" class="form-control"  placeholder="Name"  ngModel name="name" required minlength="7" #FirstNameValidation="ngModel"  >
     
               <div class="invalid-feedback" *ngIf="!FirstNameValidation.valid && FirstNameValidation.touched">
                 Please choose a Valid Name.
@@ -44,10 +40,9 @@
                 Looks good!
               </div>
             </div>
-
             <div class="col-md-6 mb-3">
               <label >Price</label>
-              <input type="text" class="form-control is-valid"  placeholder="Price"  ngModel name="price" required minlength="2" #LastNameValidation="ngModel" >
+              <input type="text" class="form-control"  placeholder="Price"  ngModel name="price" required minlength="2" #LastNameValidation="ngModel" >
     
               <div class="invalid-feedback" *ngIf="!LastNameValidation.valid && LastNameValidation.touched">
                 Please choose a Valid Name.
@@ -60,12 +55,26 @@
     
           </div>
           <!--/**********************************************************************************************************/-->
-    
 
           <div class="form-row">
             <div class="col-md-12 mb-12">
+              <label>Select Category</label>
+
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <label class="input-group-text" >Category</label>
+                </div>
+                  <select class="custom-select" ngModel name="selectedCategory"> 
+                    <option *ngFor="let option of category" [value]="option" >{{option}}</option>
+                  </select>
+                </div>
+            </div>
+            
+          </div>
+          <div class="form-row">
+            <div class="col-md-12 mb-12">
               <label>Ingredients</label>
-              <input type="text" class="form-control is-valid"  placeholder="Ingredients splited with   *  "  ngModel name="inger" required  #ingredientsValidation="ngModel"  >
+              <input type="text" class="form-control"  placeholder="Ingredients splited with   *  "  ngModel name="inger" required  #ingredientsValidation="ngModel"  >
     
               <div class="invalid-feedback" *ngIf="!ingredientsValidation.valid && ingredientsValidation.touched">
                 Please choose a Valid Name.
@@ -77,11 +86,10 @@
             </div>
             
           </div>
-
           <div class="form-row">
             <div class="col-md-12 mb-12">
               <label>Discribe</label>
-              <input type="text" class="form-control is-valid"  placeholder="Discribe"  ngModel name="dis" required  #DiscribeValidation="ngModel"  >
+              <input type="text" class="form-control"  placeholder="Discribe"  ngModel name="dis" required  #DiscribeValidation="ngModel"  >
     
               <div class="invalid-feedback" *ngIf="!DiscribeValidation.valid && DiscribeValidation.touched">
                 Please choose a Valid Name.
@@ -93,8 +101,24 @@
             </div>
             
           </div>
+
+          <div class="form-row">
+            <div class="col-md-12 mb-12">
+              <label>Product Address</label>
+              <input type="text" class="form-control "  placeholder="Please Be More Spicfic"  ngModel name="address" required  #AddressValidation="ngModel"  >
+    
+              <div class="invalid-feedback" *ngIf="!AddressValidation.valid && AddressValidation.touched">
+                Please choose a Valid Name.
+              </div>
+    
+              <div class="valid-feedback" *ngIf="AddressValidation.valid && AddressValidation.touched">
+                Looks good!
+              </div>
+            </div>
+            
+          </div>
          
-         <br><BR><br>
+         <br><BR>
     
 
           <div>

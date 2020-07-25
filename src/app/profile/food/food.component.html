@@ -35,10 +35,10 @@
   
               <h5 class="margin-tb-20"><b>{{x.name}}</b></h5>
               <p>{{x.dis}}</p>
-              <p>{{x.price}}</p>
+              <p>{{x.price}} EGY</p>
             </div><!-- counter -->
             <button class="btn btn-danger" style="float: left;" (click)='onDeleteItem(x.id , id)'>Delete</button>
-            <button class="btn btn-primary" style="float: right;">Order</button>
+            <button class="btn btn-primary" style="float: right;" (click)="orderProduct(x)">Order</button>
   
           </div><!-- col-md-4 -->
   

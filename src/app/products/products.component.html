@@ -1,10 +1,9 @@
 
-
 <div *ngIf="ListOfPro.length == 0" class="d-flex justify-content-center" style="margin-top: 30vh;">
   <app-loading></app-loading>
 </div>
 
-
+<div style="height: 98vh;overflow: hidden; ;overflow-y: scroll;">
 <div class="row">
 
   <div class="card col-sm-3" *ngFor="let item of ListOfPro"  style="height: 40vh; width: 20vw; background-color: #005f6b ; color: white;" >
@@ -35,7 +34,7 @@
 
 
 
-
+</div>
 
 
 

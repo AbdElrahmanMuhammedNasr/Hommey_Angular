@@ -15,6 +15,7 @@ export class AddproductComponent implements OnInit {
 
   @ViewChild('AddNewPro') addData:NgForm;
   wait = false;
+  selectedCategory: any;
 
   ngOnInit(): void {
   }
@@ -25,19 +26,30 @@ export class AddproductComponent implements OnInit {
   onClose(){
     this.router.navigate(['/profile']);
   }
-
+ 
+  category =[
+    'Breakfast',
+    'Lunch',
+    'Dinner',
+    'Vegan',
+    'Juice',
+  ]
 
   onAddNewPro(){
-   this.wait = true;
+    if(this.addData.valid){
+      this.wait = true;
     this.obj = {
       'email': localStorage.getItem('theEmail'),
       'image': this.localUrl,
       'name': this.addData.value.name,
-      'price': this.addData.value.price,
+      'price': +this.addData.value.price,
       'dis': this.addData.value.dis,
       'inger': this.addData.value.inger,
-      'ava':true
+      'ava':true,
+      'address':this.addData.value.address,
+      'category':this.addData.value.selectedCategory
     }
+    // console.log(this.obj)
     this.addService.addNewOne(this.obj)
     .subscribe(
       data =>{
@@ -46,7 +58,12 @@ export class AddproductComponent implements OnInit {
         this.addData.reset();
        }
     );
-    // console.log(this.addData.value);
+
+    }else{
+      this.router.navigate(['/profile/addproduct']);
+      ;
+    }
+   
   }
 
   showPreviewImage(event: any) {

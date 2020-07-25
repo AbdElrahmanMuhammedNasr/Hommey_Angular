@@ -13,7 +13,6 @@ export class SignUpComponent implements OnInit {
   constructor(private router: Router, private signUpService: SignUpService) { }
 
   @ViewChild('SignUpDataForm' ) signUp: NgForm;
-  userType = true;
   LoginData: any;
   otherData: any;
   localUrl: any;
@@ -22,9 +21,6 @@ export class SignUpComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  onSwitch() {
-    this.userType = !this.userType;
-  }
 
   showPreviewImage(event: any) {
     if (event.target.files && event.target.files[0]) {
