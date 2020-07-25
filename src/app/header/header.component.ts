@@ -12,7 +12,7 @@ import { NotesService } from '../notes/Notes.service';
 export class HeaderComponent implements OnInit , DoCheck {
 
   disAppearnumberOfNots; // from state
-  constructor(private router: Router, private store: Store<any>, private notesService: NotesService) { 
+  constructor(private router: Router, private store: Store<any>, private notesService: NotesService) {
     this.store.subscribe( data =>{
         this.disAppearnumberOfNots = data.open.notifications_number;
     })

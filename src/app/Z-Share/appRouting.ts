@@ -24,10 +24,10 @@ const routes: Routes = [
   {path: 'signUp', component: SignUpComponent},
 
   {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard], children:[
-    {path:'profileOptins', component:ProfileOptionsComponent},
-    {path:'addProduct', component:AddproductComponent},
+    {path: 'profileOptins', component: ProfileOptionsComponent},
+    {path: 'addProduct', component: AddproductComponent},
   ]}
-  
+
 ];
 
 @NgModule({

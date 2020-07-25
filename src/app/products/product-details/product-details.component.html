@@ -10,7 +10,7 @@
   <div *ngIf="product == null" class="d-flex justify-content-center" style="margin-top: 30vh;">
     <app-loading></app-loading>
   </div>
-  
+
 <div  *ngIf="product != null">
 
   <div class="form-row" style="height: 25rem">
@@ -69,7 +69,7 @@
 
               <h5 class="card-title col-md-8">
                 <h4 class="card-title"> {{user.firstName}} {{user.lastName}}</h4>
-                <h6 class="card-title"> {{user.email}} </h6>
+                <h6 class="card-title"> <a routerLink="/profile" [queryParams]="{email:user.email }" > {{user.email}} </a> </h6>
                 <h6 class="card-title"> {{user.phone}} </h6>
 
                 <!-- <i class="fa fa-star" style="color: gold ; margin-left: 2px" *ngFor=" let rate of product.chef.rate"></i> -->

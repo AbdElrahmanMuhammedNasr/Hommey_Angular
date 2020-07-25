@@ -1,77 +1,11 @@
-  
-  <section class="intro-section">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-1 col-lg-2"></div>
-      <div class="col-md-10 col-lg-8">
-        <div class="intro">
-          <div class="profile-img"><img [src]="USER.image"></div>
 
-          <h2><b>{{USER.firstName}} {{USER.lastName}}</b></h2>
-          <h4 class="font-yellow">Key Account Manager</h4>
-          <i class="fa fa-ellipsis-h" style="cursor: pointer;" (click)='onGetOptions()'></i>
+   <app-user></app-user>
 
-          <ul class="information margin-tb-30">
-            <li><b>Born : </b>{{USER.date}}</li>
-            <li><b>Emai : </b>{{USER.email}}</li>
-            <li><b>Phone : </b>{{USER.phone}}</li>
-          </ul>
-          <ul class="social-icons">
-            <li><a href="https://www.facebook.com"><i class="fa fa-facebook"></i></a></li>
-          </ul>
-        </div><!-- intro -->
-      </div><!-- col-sm-8 -->
-    </div><!-- row -->
-  </div><!-- container -->
-</section><!-- intro-section -->
+   <!-- <app-progress></app-progress>
 
+   <app-food></app-food>
 
-<section class="progression-section section">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-12">
-        <div class="heading">
-          <h4><b>Progression</b></h4>
-        </div>
-      </div><!-- col-sm-12 -->
-      <div class="col-sm-6 col-md-6 col-lg-3">
-        <div class="counter margin-b-30">
-          <h1 class="title"><b><span class="counter-value" data-duration="400" data-count="3">{{process.food}}</span></b></h1>
-          <h5 class="desc"><b>Food </b></h5>
-        </div><!-- counter -->
-      </div><!-- col-md-3-->
-
-      <div class="col-sm-6 col-md-6 col-lg-3">
-        <div class="counter margin-b-30">
-          <h1 class="title"><b><span class="counter-value" data-duration="1400" data-count="25">{{process.client}}</span></b></h1>
-          <h5 class="desc"><b>Client </b></h5>
-        </div><!-- counter -->
-      </div><!-- col-md-3-->
-
-      <div class="col-sm-6 col-md-6 col-lg-3">
-        <div class="counter margin-b-30">
-          <h1 class="title"><b><span class="counter-value" data-duration="700" data-count="311">{{process.satisfied}}</span></b></h1>
-          <h5 class="desc"><b>Satisfied Clients</b></h5>
-        </div><!-- counter -->
-      </div><!-- col-md-3-->
-
-      <div class="col-sm-6 col-md-6 col-lg-3">
-        <div class="counter margin-b-30">
-          <h1 class="title"><b><span class="counter-value" data-duration="2000" data-count="732">{{process.rating}}</span></b></h1>
-          <h5 class="desc"><b>Rating</b></h5>
-        </div><!-- margin-b-30 -->
-      </div><!-- col-md-3-->
-
-    </div><!-- row -->
-  </div><!-- container -->
-</section><!-- progression-section -->
-
-
-  <app-food></app-food>
-
-
-
-  <app-comment></app-comment>
+    <app-comment></app-comment> -->
 
 <section class="fixed-top" style="margin-top: 70px; margin-left: 10px;">
   <button class="" style="background-color: #5bced6; width: 60px; height: 60px; border-radius: 50%;" (click)='onAdd()'>

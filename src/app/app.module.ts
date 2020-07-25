@@ -18,7 +18,6 @@ import {ProductServiceService} from './products/product-details/ProductService.s
 import {HomeService} from './home-page/Home.service';
 import {LoginService} from './login/Login.service';
 import {NotesService} from './notes/Notes.service';
-import {ProfileService} from './profile/Profile.service';
 import {SignUpService} from './sign-up/SignUp.service';
 import { CartComponent } from './cart/cart.component';
 import { ProfileOptionsComponent } from './profile/profile-options/profile-options.component';
@@ -37,6 +36,8 @@ import { CommentComponent } from './profile/comment/comment.component';
 import { FoodComponent } from './profile/food/food.component';
 import { FoodService } from './profile/food/Food.service';
 import { CommentService } from './profile/comment/comment.service';
+import { UserComponent } from './profile/user/user.component';
+import { ProgressComponent } from './profile/progress/progress.component';
 
 
 
@@ -57,6 +58,8 @@ import { CommentService } from './profile/comment/comment.service';
     LoadingComponent,
     CommentComponent,
     FoodComponent,
+    UserComponent,
+    ProgressComponent,
   ],
   imports: [
     BrowserModule,
@@ -68,7 +71,7 @@ import { CommentService } from './profile/comment/comment.service';
 
     
   ],
-  providers: [CommentService ,FoodService,ProductsService, ProductServiceService, HomeService, LoginService, NotesService, ProfileService, SignUpService,AddNew],
+  providers: [CommentService ,FoodService,ProductsService, ProductServiceService, HomeService, LoginService, NotesService, SignUpService,AddNew],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

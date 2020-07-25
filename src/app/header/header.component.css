@@ -21,7 +21,7 @@ input[type=search]{
   position: fixed;
   width: 250px;
   right: 30px;
-  top: 64px;
+  top: 60px;
   z-index: 1000;
   background-color: lightgray;
 }
