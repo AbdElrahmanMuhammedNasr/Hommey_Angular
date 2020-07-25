@@ -9,9 +9,9 @@
   <div class="card col-sm-3" *ngFor="let item of ListOfPro"  style="height: 40vh; width: 20vw; background-color: #005f6b ; color: white;" >
     <div class="card-body" style="text-align: center">
       <div class="form-row">
-        <section class="col-md-2" *ngIf="isLogin !=null ">
+        <!-- <section class="col-md-2" *ngIf="isLogin !=null ">
           <i  class="HEART fa fa-heart"  [ngStyle]="{'color': ListOfFavor.includes(item.id)?'red':''}"  style="font-size: 35px;" (click)="onAddFavourite(item.id)"></i>
-        </section>
+        </section> -->
         <section class="col">
           <h4 class="card-title">{{item.name}}</h4>
         </section>

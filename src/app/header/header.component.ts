@@ -42,7 +42,7 @@ export class HeaderComponent implements OnInit , DoCheck {
   }
   onShowNotifications() {
      //to change state
-      this.store.dispatch({type: "OPEN_NOTIFICATIONS" });
+      // this.store.dispatch({type: "OPEN_NOTIFICATIONS" });
       // to display notes
       this.clickBell = !this.clickBell;
   }

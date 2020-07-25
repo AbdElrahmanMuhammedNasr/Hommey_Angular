@@ -3,7 +3,7 @@
 }
 .Content .Items .Cart{
     margin-top: 20px;
-    border: 2px solid gray;
+    border: 2px solid white;
     border-radius: 10px;
     box-shadow: 10px 10px 10px white;
     transform: scale(0.9);
@@ -16,13 +16,13 @@
     height: 60vh;
     padding: 50px;
     margin-top: 50px;
-    border: 2px solid #797979;
+    border: 2px solid white;
     border-radius: 5px;
 }
 
 .Content .Summary .Summary-det ul li{
     margin-top: 20px;
-    box-shadow: 10px 10px 10px gray;
+    box-shadow: 10px 10px 10px rgb(170, 170, 170);
 }
 ::-webkit-scrollbar {
     display: none;
