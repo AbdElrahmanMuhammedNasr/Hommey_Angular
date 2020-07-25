@@ -1,0 +1,52 @@
+<section class="iconboxes-section section"  >
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="heading">
+            <h4><b>My Food</b></h4>
+          </div>
+        </div><!-- col-sm-12 -->
+  
+        <div *ngIf="myFoodList.length == 0" class="d-flex justify-content-center" style="margin-left: 45%;">
+          <app-loading></app-loading>
+        </div>
+  
+  
+        <section  *ngIf="myFoodList.length != 0" class="container row" style=" height: auto; box-shadow: 2px 15px 29px 15px rgb(250, 250, 250); padding: 20px">
+          <!-- people though -->
+  
+          <div class="col-sm-6 col-md-6 col-lg-5"
+            style="border-radius: 20px ;border: 2px solid #aaaaaa;margin-left: 55px; margin-top: 30px; padding: 20px;"
+            *ngFor="let x of myFoodList ; let id = index">
+            <div class="iconbox margin-b-30">
+              <div class="profile-img">
+                <section class="row">
+                  <section class="col">
+                    <i>{{x.avilable === true?'Available':'Not Available'}} </i>
+                  </section>
+                  <section class="col">
+                    <i class="fa fa-circle" [ngStyle]=" { 'color': x.avilable === true ? 'greenyellow' : 'red' }"
+                      style="z-index: 10;float: right;margin-top: 8px "></i>
+                  </section>
+                </section>
+                <br>
+                <img [src]=x.image  style="height: 20vh;">
+              </div>
+  
+              <h5 class="margin-tb-20"><b>{{x.name}}</b></h5>
+              <p>{{x.dis}}</p>
+              <p>{{x.price}}</p>
+            </div><!-- counter -->
+            <button class="btn btn-danger" style="float: left;" (click)='onDeleteItem(x.id , id)'>Delete</button>
+            <button class="btn btn-primary" style="float: right;">Order</button>
+  
+          </div><!-- col-md-4 -->
+  
+        </section>
+  
+  
+  
+      </div><!-- row -->
+    </div><!-- container -->
+  </section><!-- progression-section -->
+  

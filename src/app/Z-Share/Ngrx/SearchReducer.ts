@@ -8,12 +8,12 @@ export function searchProduct(state = initalState, action: Action) {
         return {
             ...state,
             Search_Word: ''
-        }
+        };
     } else {
         return {
             ...state,
             Search_Word: action.type
-        }
+        };
 
     }
 }

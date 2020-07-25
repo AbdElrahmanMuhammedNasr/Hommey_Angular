@@ -14,11 +14,8 @@ export class ProfileComponent implements OnInit  {
   constructor(private router: Router, private profileService: ProfileService) { }
 
 
-  @ViewChild('AddNewComment') addReview:NgForm;
 
 
-  myFoodList = [];
-  obj: any;
 
   USER = {
     image: '',
@@ -47,7 +44,6 @@ export class ProfileComponent implements OnInit  {
     rating:5
   }
 
-  reviewPeople = [];
 
 
   ngOnInit(): void {
@@ -58,55 +54,12 @@ export class ProfileComponent implements OnInit  {
         console.log(this.USER);
       }
     );
-    /************************get comment***********************************/
-    this.profileService.getAllComment(this.user.email).subscribe(
-      data => {
-        this.reviewPeople = data;
-        console.log(data);
-      }
-    );
+  
 
-    /****************************** Food ********************************* */
-    this.profileService.getAllUserPosts(localStorage.getItem('theEmail'))
-    .subscribe(
-      data =>{
-        this.myFoodList = data;
-        console.log(data);
-      }
-    )
+    
   }
 
 
-
-
-
-  onAddReview(){
-    this.obj = {
-      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRu5xM7AympyMP6dCJg2ttLYl-romUk2LeQeMOaPmNP8Jg58YlN&usqp=CAU',
-      name: localStorage.getItem('userName'),
-      rate: this.addReview.value.rate,
-      review:this.addReview.value.review,
-      chef:this.user.email,
-      postedin: new Date().toUTCString().split(' GMT')[0]
-    }
-    this.profileService.addComment(this.obj).subscribe(
-      data=>{
-          console.log('add comment success ' , data)
-      }
-    );
-    this.reviewPeople.push(this.obj);
-    this.addReview.reset();
-
-  }
-
-
-  onDeleteItem(itemId, id){
-    console.log(itemId);
-    console.log(id);
-    this.profileService.deletePost(itemId);
-    this.myFoodList.splice(id, 1);
-
-  }
 
   onGetOptions() {
     this.router.navigate(['/profile/profileOptins']);

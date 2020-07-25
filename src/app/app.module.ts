@@ -33,6 +33,10 @@ import { LoadingComponent } from './Z-Share/loading/loading.component';
 import {StoreModule} from '@ngrx/store'
 import { openNotificationReducer } from './Z-Share/Ngrx/reducer';
 import { searchProduct } from './Z-Share/Ngrx/SearchReducer';
+import { CommentComponent } from './profile/comment/comment.component';
+import { FoodComponent } from './profile/food/food.component';
+import { FoodService } from './profile/food/Food.service';
+import { CommentService } from './profile/comment/comment.service';
 
 
 
@@ -51,6 +55,8 @@ import { searchProduct } from './Z-Share/Ngrx/SearchReducer';
     ProfileOptionsComponent,
     AddproductComponent,
     LoadingComponent,
+    CommentComponent,
+    FoodComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,7 +68,7 @@ import { searchProduct } from './Z-Share/Ngrx/SearchReducer';
 
     
   ],
-  providers: [ProductsService, ProductServiceService, HomeService, LoginService, NotesService, ProfileService, SignUpService,AddNew],
+  providers: [CommentService ,FoodService,ProductsService, ProductServiceService, HomeService, LoginService, NotesService, ProfileService, SignUpService,AddNew],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
