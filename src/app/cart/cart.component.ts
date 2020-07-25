@@ -9,6 +9,7 @@ import { CartService } from './cart.service';
 export class CartComponent implements OnInit {
 
   carts = [];
+  length = false;
   price = 0;
   constructor(private cartService: CartService) { }
 
@@ -16,12 +17,15 @@ export class CartComponent implements OnInit {
     this.cartService.getUserCart(localStorage.getItem('theEmail')).subscribe(
       data => {
         this.carts = data;
+        this.length = true;
+
+        this.carts.map(ele => {
+          this.price = this.price + (+ele.price);
+        });
       }
     );
 
-    this.carts.map(ele => {
-      this.price = this.price + ele.price;
-    });
+
   }
 
 }

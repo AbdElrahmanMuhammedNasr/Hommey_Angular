@@ -11,6 +11,7 @@ export class CartService{
     constructor(private http: HttpClient){}
 
     getUserCart(email){
+      console.log(email);
         return this.http.get('https://hommey-b9aa6.firebaseio.com/Cart.json').pipe(
             map(resData=>{
                 const cart = [];

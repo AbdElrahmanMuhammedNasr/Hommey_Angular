@@ -13,8 +13,31 @@ export class ProfileComponent implements OnInit  {
   constructor(private router: Router) { }
 
 
+  progress = false;
+  food = false;
+  comment = false;
+
   ngOnInit(): void {}
 
+  onAppear(what){
+    if (what == 'Progress'){
+      this.progress = true;
+      this.food = false;
+      this.comment = false;
+
+    }else if(what == 'Food'){
+      this.progress = false;
+      this.food = true;
+      this.comment = false;
+
+    }else if(what == 'Comment'){
+      this.progress = false;
+      this.food = false;
+      this.comment = true;
+
+    }
+
+  }
 
 
   onAdd() {

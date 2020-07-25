@@ -1,11 +1,31 @@
 
    <app-user></app-user>
 
-   <!-- <app-progress></app-progress>
+   <nav class="navbar navbar-expand-lg navbar-light ">
+  
+    <div class="collapse navbar-collapse" >
 
-   <app-food></app-food>
+      <ul class="navbar-nav m-auto">
+        <li class="nav-item ">
+          <button style="color: white;" class="nav-link btn" (click)="onAppear('Progress')" >Progress</button>
+        </li>
+        <li class="nav-item">
+          <button style="color: white;" class="nav-link  btn" (click)="onAppear('Food')">Food</button>
+        </li>
+        <li class="nav-item">
+          <button style="color: white;" class="nav-link  btn"  (click)="onAppear('Comment')">Comment</button>
+        </li>
+       
+      </ul>
+    </div>
+  </nav>
 
-    <app-comment></app-comment> -->
+
+    <app-progress *ngIf="progress"></app-progress>
+
+   <app-food *ngIf="food"></app-food>
+
+    <app-comment *ngIf="comment"></app-comment>
 
 <section class="fixed-top" style="margin-top: 70px; margin-left: 10px;">
   <button class="" style="background-color: #5bced6; width: 60px; height: 60px; border-radius: 50%;" (click)='onAdd()'>

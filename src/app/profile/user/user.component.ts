@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {UserService} from './User.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-user',
@@ -9,9 +9,10 @@ import { Router } from '@angular/router';
 })
 export class UserComponent implements OnInit {
 
-  constructor(private userServie: UserService, private router: Router) { }
+  constructor(private userServie: UserService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
-  USER = {
+  USER = 
+  {
     image: '',
     firstName: '',
     lastName: '',
@@ -25,13 +26,32 @@ export class UserComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    /**********************get user data***********************/
-    this.userServie.getUserData().subscribe(
+    this.activatedRoute.queryParams.subscribe(params=>{
+        console.log(params.email);
+        // this.ongetUser();
+        if(params){
+          this.ongetUser();
+        }else{
+            this.userServie.getUserData(params.email).subscribe(
+              data => {
+                this.USER = data;
+              }
+            );
+          
+          
+        }
+    })
+
+  
+  }
+  ongetUser(){
+    this.userServie.getUserData(localStorage.getItem('theEmail')).subscribe(
       data => {
         this.USER = data;
-        console.log(this.USER);
       }
     );
   }
+
+
 
 }

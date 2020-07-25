@@ -1,9 +1,8 @@
-<div class="row d-flex justify-content-center  Content" >
+<div *ngIf="!length" style="margin:0vh 45vw;">
+    <app-loading></app-loading>
+</div>
+    <div *ngIf="length" class="row d-flex justify-content-center  Content" >
         <section class="col-md-7 offest-1 Items" style="height: 90vh;  overflow-y: scroll;" >
-
-            <div *ngIf="carts == null" style="margin: 30vh 26vw;">
-                <app-loading></app-loading>
-            </div>
             
             <div class="container row  Cart" *ngFor="let cart of carts" >
                 <div class="col-sm-3" >
@@ -21,8 +20,7 @@
 
         </section>
 
-        <section class="col-md-4 Summary" style=" height: 80vh; ">
-        
+        <section  class="col-md-4 Summary" style=" height: 80vh; ">   
             <div class="container Summary-det">
                     <h1 class="text-center">Summary</h1>
                     <br><BR>
@@ -44,4 +42,5 @@
             </div>
 
         </section>
-</div>
+    </div>
+

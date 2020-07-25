@@ -10,11 +10,11 @@ export class UserService {
 
   constructor(private http: HttpClient, private fireDatabase: AngularFireDatabase) { }
 
-  getUserData(){
+  getUserData(email){
     return this.http.get('https://hommey-b9aa6.firebaseio.com/user.json').pipe(
       map(resData => {
         for ( const key in resData){
-          if ( resData[key].email === localStorage.getItem('theEmail')){
+          if ( resData[key].email === email){
             return {...resData[key]
             };
           }
