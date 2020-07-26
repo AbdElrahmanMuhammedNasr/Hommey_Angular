@@ -13,7 +13,9 @@ export class ProductsComponent implements OnInit {
   constructor(private router: Router, private productsService: ProductsService, private store: Store<any>) {
 
     this.store.subscribe(data => {
-      if (data.searchPro.Search_Word < 0){
+      if (data.searchPro.Search_Word <= 0){
+        this.ListOfPro = [];
+        this.onGetAllProducts();
       }else{
         this.ListOfPro = [];
         this.onGetOneProduct(data.searchPro.Search_Word);
