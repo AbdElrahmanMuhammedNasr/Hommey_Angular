@@ -20,7 +20,6 @@ import {LoginService} from './login/Login.service';
 import {NotesService} from './notes/Notes.service';
 import {SignUpService} from './sign-up/SignUp.service';
 import { CartComponent } from './cart/cart.component';
-import { ProfileOptionsComponent } from './profile/profile-options/profile-options.component';
 import { AddproductComponent } from './profile/addproduct/addproduct.component';
 import { AddNew } from './profile/addproduct/add.service';
 
@@ -53,7 +52,6 @@ import { ProgressComponent } from './profile/progress/progress.component';
     ProductDetailsComponent,
     ProfileComponent,
     CartComponent,
-    ProfileOptionsComponent,
     AddproductComponent,
     LoadingComponent,
     CommentComponent,

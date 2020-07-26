@@ -1,43 +1,48 @@
-
-<nav class="navbar fixed-top navbar-expand-lg  navbar-dark bg-primary" >
+<nav class="navbar fixed-top navbar-expand-lg  navbar-dark bg-primary">
 
   <a style="color: white" class="navbar-brand AskClass "> <span class="logo">Homeey </span></a>
 
-  <div class="collapse navbar-collapse" >
+  <div class="collapse navbar-collapse">
 
-      <input  type="search" class="form-control SearchInput" placeholder="Search for people or prodect" (change)='onSearchProduct($event)'>
+    <input type="search" class="form-control SearchInput" placeholder="Search for people or prodect"
+      (change)='onSearchProduct($event)'>
 
 
     <ul class="navbar-nav m-auto">
-            <li class="nav-item my-2 my-lg-0 ">
-              <a class="nav-link"  routerLink="/home"> <span class="fa fa-home" style="font-size: 20px; width:50px; text-align: center"></span></a>
-            </li>
+      <li class="nav-item my-2 my-lg-0 ">
+        <a class="nav-link" routerLink="/home"> <span class="fa fa-home"
+            style="font-size: 20px; width:50px; text-align: center"></span></a>
+      </li>
 
-            <li class="nav-item my-2 my-lg-0 " *ngIf="login" (click)="onShowNotifications()">
-              <a class="nav-link" >
-                <span class="fa fa-bell" style="font-size: 20px; width:50px; text-align: center"></span>
-                <span *ngIf='disAppearnumberOfNots' class="badge badge-danger " style="font-size: 13px;">{{RealNumbeOfNotificatios}}</span>
-              </a>
-            </li>
+      <li class="nav-item my-2 my-lg-0 " *ngIf="login" (click)="onShowNotifications()">
+        <a class="nav-link">
+          <span class="fa fa-bell" style="font-size: 20px; width:50px; text-align: center"></span>
+          <span *ngIf='disAppearnumberOfNots' class="badge badge-danger "
+            style="font-size: 13px;">{{RealNumbeOfNotificatios}}</span>
+        </a>
+      </li>
 
-          <li class="nav-item my-2 my-lg-0 " *ngIf="!login">
-            <a class="nav-link"  routerLink="/login"> <span class="fa fa-sign-in" style="font-size: 13px; width:50px; text-align: center"></span>  </a>
-          </li>
+      <li class="nav-item my-2 my-lg-0 " *ngIf="!login">
+        <a class="nav-link" routerLink="/login"> <span class="fa fa-sign-in"
+            style="font-size: 13px; width:50px; text-align: center"></span> </a>
+      </li>
 
 
     </ul>
 
+
     <ul class="navbar-nav ml-auto" *ngIf="login">
 
       <li class="nav-item my-2 my-lg-0 " *ngIf="login" style="margin-right: 200px;" (click)="onShowCarts()">
-        <a class="nav-link" >
+        <a class="nav-link">
           <span class="fa fa-shopping-cart" style="font-size: 20px; width:50px; text-align: center"></span>
         </a>
       </li>
 
 
+      <h5 style="margin: 0px 20px; color: white;">{{USER.firstName}}</h5>
       <div class="testPhoto" (click)="onShowMenu()">
-          <img  [src]="USER.image">
+        <img [src]="USER.image">
       </div>
 
     </ul>
@@ -49,15 +54,14 @@
 
 
 <div class="Setting" *ngIf="clickPhoto">
-    <div class="list-group" id="list-tab" role="tablist">
-      <a class="list-group-item list-group-item-action"  routerLink="/profile" role="tab" aria-controls="profile">Profile <i class="fa fa-user" style="float: right; font-size: 20px"></i> </a>
-      <a class="list-group-item list-group-item-action"  role="tab" aria-controls=""> <button class="btn btn-outline-danger"   style="width: 100%" (click)="onLogOut()">Logout </button></a>
-    </div>
+  <div class="list-group" id="list-tab" role="tablist">
+    <a class="list-group-item list-group-item-action" routerLink="/profile" role="tab" aria-controls="profile">Profile
+      <i class="fa fa-user" style="float: right; font-size: 20px"></i> </a>
+    <a class="list-group-item list-group-item-action" role="tab" aria-controls=""> <button
+        class="btn btn-outline-danger" style="width: 100%" (click)="onLogOut()">Logout </button></a>
+  </div>
 </div>
 
 <div class="Notifications" *ngIf="clickBell">
   <app-notes></app-notes>
 </div>
-
-
-

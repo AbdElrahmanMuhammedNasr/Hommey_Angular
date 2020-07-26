@@ -9,7 +9,6 @@ import {AuthGuard} from './guard/AuthGuard.guard';
 import {AuthChildGuard} from './guard/AuthChildGuard.guard';
 import {AuthDeactiveGuard} from './guard/AuthDeactive.guard';
 import { CartComponent } from '../cart/cart.component';
-import { ProfileOptionsComponent } from '../profile/profile-options/profile-options.component';
 import { AddproductComponent } from '../profile/addproduct/addproduct.component';
 
 
@@ -24,7 +23,6 @@ const routes: Routes = [
   {path: 'signUp', component: SignUpComponent},
 
   {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard], children:[
-    {path: 'profileOptins', component: ProfileOptionsComponent},
     {path: 'addProduct', component: AddproductComponent},
   ]}
 

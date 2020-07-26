@@ -11,16 +11,22 @@
             <div class="profile-img"><img [src]="USER.image"></div>
 
             <h2><b>{{USER.firstName}} {{USER.lastName}}</b></h2>
-           <i class="fa fa-ellipsis-h" style="cursor: pointer;" (click)='onGetOptions()'></i>
+           
+
 
             <ul class="information margin-tb-30">
               <li><b>Born : </b>{{USER.date}}</li>
               <li><b>Emai : </b>{{USER.email}}</li>
               <li><b>Phone : </b>{{USER.phone}}</li>
             </ul>
+
             <ul class="social-icons">
               <li><a [href]="USER.link"><i class="fa fa-facebook"></i></a></li>
             </ul>
+            
+             <div *ngIf="owner != user">
+              <button (click)="onAction('report')" class="btn btn-warning">Report</button>
+            </div>
           </div><!-- intro -->
         </div><!-- col-sm-8 -->
       </div><!-- row -->
@@ -28,4 +34,3 @@
   </section>
 
 </div>
-

@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild, OnChanges, SimpleChanges, AfterContentChecked } from '@angular/core';
-import { Router } from '@angular/router';
-import { NgForm } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -10,14 +9,27 @@ import { NgForm } from '@angular/forms';
 })
 export class ProfileComponent implements OnInit  {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private activatedRoute: ActivatedRoute ) { }
 
 
   progress = false;
   food = false;
   comment = false;
 
-  ngOnInit(): void {}
+  owner;
+  user;
+
+
+  ngOnInit(): void {
+
+    this.activatedRoute.queryParams.subscribe(params => {
+      if (params.email == undefined) {
+        this.user = localStorage.getItem('theEmail');
+      } else {
+        this.user = params.email;
+      }
+    });
+  }
 
   onAppear(what){
     if (what == 'Progress'){
