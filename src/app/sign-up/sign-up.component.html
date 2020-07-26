@@ -119,7 +119,7 @@
    
  
 
-      <button class="btn btn-primary" type="submit" [disabled]="!SignUpDataForm.valid">SignUp</button>
+      <button *ngIf="active" class="btn btn-primary" type="submit" [disabled]="!SignUpDataForm.valid">SignUp</button>
       <button style="float: right" (click)="onGoToLoginForm()" type="button" class="btn btn-outline-danger">Login</button>
 
     </form>

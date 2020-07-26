@@ -4,6 +4,7 @@ import {Store} from '@ngrx/store';
 import { NotesService } from '../notes/Notes.service';
 
 
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -12,7 +13,10 @@ import { NotesService } from '../notes/Notes.service';
 export class HeaderComponent implements OnInit , DoCheck {
 
   disAppearnumberOfNots; // from state
-  constructor(private router: Router, private store: Store<any>, private notesService: NotesService) {
+  constructor(private router: Router,
+     private store: Store<any>, 
+     private notesService: NotesService,
+     ) {
     this.store.subscribe( data =>{
         this.disAppearnumberOfNots = data.open.notifications_number;
     })
@@ -42,7 +46,7 @@ export class HeaderComponent implements OnInit , DoCheck {
   }
   onShowNotifications() {
      //to change state
-      // this.store.dispatch({type: "OPEN_NOTIFICATIONS" });
+      this.store.dispatch({type: "OPEN_NOTIFICATIONS" });
       // to display notes
       this.clickBell = !this.clickBell;
   }
