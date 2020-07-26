@@ -12,6 +12,7 @@ export class FoodComponent implements OnInit {
 
   constructor(private foodService: FoodService,
     private productServiceService: ProductServiceService,
+    private activatedRoute: ActivatedRoute
   ) { }
   myFoodList = [];
 
@@ -21,7 +22,17 @@ export class FoodComponent implements OnInit {
 
 
 
-  ngOnInit(): void {  }
+  ngOnInit(): void {
+    this.activatedRoute.queryParams.subscribe(params => {
+      if (params.email == undefined) {
+        this.onGetUserPost(localStorage.getItem('theEmail'));
+      } else {
+        this.onGetUserPost(params.email);
+
+      }
+    })
+
+  }
 
   onDeleteItem(itemId, id) {
     console.log(itemId);

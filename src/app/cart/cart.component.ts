@@ -14,6 +14,7 @@ export class CartComponent implements OnInit {
   constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
+    console.log(localStorage.getItem('theEmail'));
     this.cartService.getUserCart(localStorage.getItem('theEmail')).subscribe(
       data => {
         this.carts = data;

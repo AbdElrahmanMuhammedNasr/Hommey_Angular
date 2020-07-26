@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NotesService } from 'src/app/notes/Notes.service';
+import { FoodService } from '../food/Food.service';
 
 @Component({
   selector: 'app-progress',
@@ -8,16 +10,16 @@ import { Component, OnInit } from '@angular/core';
 export class ProgressComponent implements OnInit {
 
 
-  process ={
-    food:20,
-    client: 40,
-    satisfied:35,
-    rating:5
-  }
 
-  constructor() { }
+    food = 0;
+    client = 0;
+
+
+  constructor(private notesService:NotesService ,  private foodService:FoodService) { }
 
   ngOnInit(): void {
+      this.food = this.foodService.NumberOfFood;
+      this.client = this.notesService.notsNumber;
   }
 
 }

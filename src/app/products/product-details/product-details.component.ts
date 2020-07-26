@@ -42,7 +42,7 @@ export class ProductDetailsComponent implements OnInit {
         this.productServiceService.getTheChef(this.product.email).subscribe(
           data=>{
             this.user= data;
-            console.log(data);
+            // console.log(data);
           }
         );
       }
@@ -57,9 +57,9 @@ export class ProductDetailsComponent implements OnInit {
   orderProduct(id: string){
     this.order= true;
     this.notifications ={
-      user:localStorage.getItem('userName'),
+      user:localStorage.getItem('theEmail'),
       order:this.product.name,
-      email:localStorage.getItem('theEmail'),
+      email: this.user.email,
       time: new Date().toUTCString().split(' GMT')[0]
     };
     this.productServiceService.orderProduct(this.notifications).subscribe();
@@ -75,7 +75,7 @@ export class ProductDetailsComponent implements OnInit {
     }
     this.productServiceService.addToCart(this.cartProduct).subscribe(
       data=>{
-        console.log(data);
+        // console.log(data);
       }
   );
     // console.log(`ordered ${id}`)

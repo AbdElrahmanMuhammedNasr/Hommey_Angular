@@ -20,15 +20,6 @@
             *ngFor="let x of myFoodList ; let id = index">
             <div class="iconbox margin-b-30">
               <div class="profile-img">
-                <section class="row">
-                  <section class="col">
-                    <i>{{x.avilable === true?'Available':'Not Available'}} </i>
-                  </section>
-                  <section class="col">
-                    <i class="fa fa-circle" [ngStyle]=" { 'color': x.avilable === true ? 'greenyellow' : 'red' }"
-                      style="z-index: 10;float: right;margin-top: 8px "></i>
-                  </section>
-                </section>
                 <br>
                 <img [src]=x.image  style="height: 20vh;">
               </div>

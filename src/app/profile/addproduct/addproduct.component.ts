@@ -51,7 +51,6 @@ export class AddproductComponent implements OnInit {
         'price': +this.addData.value.price,
         'dis': this.addData.value.dis,
         'inger': this.addData.value.inger,
-        'ava': true,
         'address': this.addData.value.address,
         'category': this.addData.value.selectedCategory
       }

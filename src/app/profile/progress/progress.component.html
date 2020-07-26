@@ -6,32 +6,24 @@
             <h4><b>Progression</b></h4>
           </div>
         </div><!-- col-sm-12 -->
-        <div class="col-sm-6 col-md-6 col-lg-3">
+        <div class="col-sm-6 col-md-6 col-lg-6">
           <div class="counter margin-b-30">
-            <h1 class="title"><b><span class="counter-value" data-duration="400" data-count="3">{{process.food}}</span></b></h1>
-            <h5 class="desc"><b>Food </b></h5>
+
+            <!-- <h1 *ngIf='food == 0' class="title"><b><span class="counter-value" data-duration="400" data-count="3">Waiting</span></b></h1> -->
+            
+            <h1 class="title"><b><span class="counter-value" data-duration="400" data-count="3">{{food}}</span></b></h1>
+            <h5 class="desc"><b>Food</b></h5>
           </div><!-- counter -->
         </div><!-- col-md-3-->
   
-        <div class="col-sm-6 col-md-6 col-lg-3">
+        <div class="col-sm-6 col-md-6 col-lg-6">
           <div class="counter margin-b-30">
-            <h1 class="title"><b><span class="counter-value" data-duration="1400" data-count="25">{{process.client}}</span></b></h1>
-            <h5 class="desc"><b>Client </b></h5>
+
+            <!-- <h1 *ngIf='client == 0' class="title"><b><span class="counter-value" data-duration="400" data-count="3">Waiting</span></b></h1> -->
+
+            <h1 class="title"><b><span class="counter-value" data-duration="1400" data-count="25">{{client}}</span></b></h1>
+            <h5 class="desc"><b>Client</b></h5>
           </div><!-- counter -->
-        </div><!-- col-md-3-->
-  
-        <div class="col-sm-6 col-md-6 col-lg-3">
-          <div class="counter margin-b-30">
-            <h1 class="title"><b><span class="counter-value" data-duration="700" data-count="311">{{process.satisfied}}</span></b></h1>
-            <h5 class="desc"><b>Satisfied Clients</b></h5>
-          </div><!-- counter -->
-        </div><!-- col-md-3-->
-  
-        <div class="col-sm-6 col-md-6 col-lg-3">
-          <div class="counter margin-b-30">
-            <h1 class="title"><b><span class="counter-value" data-duration="2000" data-count="732">{{process.rating}}</span></b></h1>
-            <h5 class="desc"><b>Rating</b></h5>
-          </div><!-- margin-b-30 -->
         </div><!-- col-md-3-->
   
       </div><!-- row -->
