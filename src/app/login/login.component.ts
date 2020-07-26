@@ -27,7 +27,6 @@ export class LoginComponent implements OnInit {
         if (this.UserFound) {
           localStorage.setItem('SuccessLogin', 'True');
           localStorage.setItem('theEmail', this.loginData.value.EMAIL);
-          localStorage.setItem('userName', 'AbdElrahaman');
           this.loginData.reset();
           this.router.navigate(['/home']);
         } else {
