@@ -7,7 +7,6 @@ import { map } from 'rxjs/operators';
 })
 export class NotesService {
 
-  notsNumber=0;
 
   constructor(private http: HttpClient){}
 
@@ -17,13 +16,29 @@ export class NotesService {
         const nots: any = [];
         for (const key in resData) {
           if (resData[key].email == email) {
-              this.notsNumber ++;
             if (resData.hasOwnProperty) {
               nots.push({ ...resData[key], id: key });
             }
           }
         }
         return nots;
+      }
+      )
+    )
+  }
+
+
+   getAllUserNotificationsNumber(email: string){
+     let notsNumber =0;
+    return this.http.get('https://hommey-b9aa6.firebaseio.com/Notifications.json').pipe(
+      map(resData => {
+        for (const key in resData) {
+          if (resData[key].email == email) {
+              notsNumber ++;
+            
+          }
+        }
+        return notsNumber;
       }
       )
     )

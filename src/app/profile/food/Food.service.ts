@@ -14,7 +14,6 @@ export class FoodService {
 
 
   constructor(private http: HttpClient, private fireDatabase: AngularFireDatabase) { }
-  NumberOfFood = 0;
 
   getAllUserPosts(email: string) {
     return this.http.get(`https://hommey-b9aa6.firebaseio.com/products.json`).pipe(
@@ -22,7 +21,6 @@ export class FoodService {
         const posts: PostsModel[] = [];
         for (const key in resData) {
           if (resData[key].email == email) {
-            this.NumberOfFood ++;
             if (resData.hasOwnProperty) {
               posts.push({ ...resData[key], id: key });
             }
@@ -34,8 +32,29 @@ export class FoodService {
     )
   };
 
-  deletePost(itemId: string){
-    this.fireDatabase.database.ref('/products/'+itemId).remove().then(function(){
+
+
+  getAllUserPostsNumber(email: string) {
+    let NumberOfFood = 0;
+    return this.http.get(`https://hommey-b9aa6.firebaseio.com/products.json`).pipe(
+      map(resData => {
+        for (const key in resData) {
+          if (resData[key].email == email) {
+            NumberOfFood++;
+          }
+        }
+        return NumberOfFood;
+        }
+      )
+    )
+
+  };
+
+
+
+
+  deletePost(itemId: string) {
+    this.fireDatabase.database.ref('/products/' + itemId).remove().then(function () {
       console.log('Done');
     });
   };
