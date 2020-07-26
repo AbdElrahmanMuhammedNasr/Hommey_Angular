@@ -2,6 +2,7 @@ import {Component, DoCheck, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {Store} from '@ngrx/store';
 import { NotesService } from '../notes/Notes.service';
+import { UserService } from '../profile/user/User.service';
 
 
 
@@ -16,6 +17,7 @@ export class HeaderComponent implements OnInit , DoCheck {
   constructor(private router: Router,
      private store: Store<any>, 
      private notesService: NotesService,
+     private userServie: UserService,
      ) {
     this.store.subscribe( data =>{
         this.disAppearnumberOfNots = data.open.notifications_number;
@@ -24,11 +26,14 @@ export class HeaderComponent implements OnInit , DoCheck {
   clickPhoto = false;
   clickBell = false;
   RealNumbeOfNotificatios ;
+  USER = null;
 
   // input = document.querySelector('SearchInput');
 
   login ;
   ngOnInit(): void {
+    this.ongetUser();
+    
     //  to get the number of notif..
     this.notesService.getAllUserNotifications(localStorage.getItem('theEmail')).subscribe(
       data =>{
@@ -69,4 +74,12 @@ export class HeaderComponent implements OnInit , DoCheck {
     this.store.dispatch({type: event.target.value});
   }
 
+
+  ongetUser(){
+    this.userServie.getUserData(localStorage.getItem('theEmail')).subscribe(
+      data => {
+        this.USER = data;
+      }
+    );
+  }
 }
