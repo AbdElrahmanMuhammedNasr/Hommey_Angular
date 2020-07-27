@@ -52,7 +52,8 @@ export class AddproductComponent implements OnInit {
         'dis': this.addData.value.dis,
         'inger': this.addData.value.inger,
         'address': this.addData.value.address,
-        'category': this.addData.value.selectedCategory
+        'category': this.addData.value.selectedCategory,
+        'time':this.addData.value.time
       }
       // console.log(this.obj)
       this.addService.addNewOne(this.obj)
