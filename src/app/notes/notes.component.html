@@ -5,9 +5,9 @@
 
         <img  class=" col-sm-1 Img" [src]="notes.userImage">
 
-        <section class="col-sm-6 offset-1" >
-          <a style="padding:20px"> {{notes.user}}</a>
-          <span style="padding:20px">  Ordered ( {{notes.order}} ) </span>  
+        <section class="col-sm-7 offset-1 " >
+          <a style="padding:20px; font-size: 23px;" routerLink="/profile" [queryParams]="{email:notes.user}" > {{notes.user}}</a>
+          <span style="padding:20px">  Ordered   <span style="font-size: 23px; color: #4242f1;">{{notes.order}} </span>  </span>  
           <span style="padding:20px">    {{notes.time}} </span>
 
         </section>

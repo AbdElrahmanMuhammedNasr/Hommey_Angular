@@ -1,5 +1,8 @@
 
 .Content{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
 }
 .Content .Items .Cart{
     margin-top: 20px;

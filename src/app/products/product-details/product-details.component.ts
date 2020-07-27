@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { ProductServiceService } from './ProductService.service';
 import { Route } from '@angular/compiler/src/core';
 import { PostsModel } from '../Products.service';
+import { UserService } from 'src/app/profile/user/User.service';
 
 @Component({
   selector: 'app-product-details',
@@ -12,6 +13,7 @@ import { PostsModel } from '../Products.service';
 export class ProductDetailsComponent implements OnInit {
 
   constructor(private router: Router,
+    private userServie: UserService,
     private route: ActivatedRoute,
     private productServiceService: ProductServiceService) { }
     isLogin;
@@ -26,7 +28,9 @@ export class ProductDetailsComponent implements OnInit {
     email:'',
     firstName:'',
     lastName:'',
-    phone:''
+    phone:'',
+    address:'',
+    time:''
   };
   order = false;
   notifications:any;
@@ -38,7 +42,7 @@ export class ProductDetailsComponent implements OnInit {
     this.productServiceService.getOnePost(this.id).subscribe(
       data => {
         this.product = data[0];
-        // console.log(this.product)
+        console.log(this.product)
         this.productServiceService.getTheChef(this.product.email).subscribe(
           data=>{
             this.user= data;
@@ -55,15 +59,22 @@ export class ProductDetailsComponent implements OnInit {
     this.router.navigate(['/home']);
   }
   orderProduct(id: string){
-    this.order= true;
-    this.notifications ={
-      user:localStorage.getItem('theEmail'),
-      order:this.product.name,
-      email: this.user.email,
-      time: new Date().toUTCString().split(' GMT')[0]
-    };
-    this.productServiceService.orderProduct(this.notifications).subscribe();
+    this.userServie.getUserData(localStorage.getItem('theEmail')).subscribe(
+      data=>{
+        this.order= true;
+        this.notifications ={
+          user:localStorage.getItem('theEmail'),
+          userImage:data.image,
+          order:this.product.name,
+          email: this.user.email,
+          time: new Date().toUTCString().split(' GMT')[0]
+        };
+        this.productServiceService.orderProduct(this.notifications).subscribe();
+    
 
+      }
+    )
+   
     this.cartProduct={
         image: this.product.image,
         email: localStorage.getItem('theEmail'),

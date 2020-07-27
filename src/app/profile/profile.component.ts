@@ -16,7 +16,7 @@ export class ProfileComponent implements OnInit  {
   food = false;
   comment = false;
 
-  owner;
+  owner=localStorage.getItem('theEmail');
   user;
 
 
