@@ -10,13 +10,13 @@ import {AuthChildGuard} from './guard/AuthChildGuard.guard';
 import {AuthDeactiveGuard} from './guard/AuthDeactive.guard';
 import { CartComponent } from '../cart/cart.component';
 import { AddproductComponent } from '../profile/addproduct/addproduct.component';
+import { NotesComponent } from '../notes/notes.component';
 
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'home', component: HomePageComponent, canActivateChild: [AuthChildGuard], children: [
-      // {path: 'product/:id', canDeactivate: [AuthDeactiveGuard], component: ProductDetailsComponent},
-      {path: 'product/:id', component: ProductDetailsComponent},
+    {path: 'product/:id', component: ProductDetailsComponent},
     ]},
   {path: 'carts', component: CartComponent, canActivate:[AuthGuard]},
   {path: 'login', component: LoginComponent},

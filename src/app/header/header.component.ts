@@ -37,8 +37,12 @@ export class HeaderComponent implements OnInit , DoCheck {
     //  to get the number of notif..
     this.notesService.getAllUserNotifications(localStorage.getItem('theEmail')).subscribe(
       data =>{
-        this.RealNumbeOfNotificatios =  this.notesService.notsNumber;
-      }
+
+        this.notesService.getAllUserNotificationsNumber(localStorage.getItem('theEmail')).subscribe(
+          nub => {
+            this.RealNumbeOfNotificatios = nub;
+           }
+        )}
     );
     this.login = localStorage.getItem('SuccessLogin');
   }
@@ -54,6 +58,7 @@ export class HeaderComponent implements OnInit , DoCheck {
         // this.store.dispatch({type: "OPEN_NOTIFICATIONS" });
       // to display notes
       this.clickBell = !this.clickBell;
+      // this.router.navigate(['/home/notifications']);
   }
   onLogOut() {
     // the seting menu
