@@ -1,9 +1,7 @@
 
- <div class="container MyContainer" >
+ <div class="MyContainer" >
+   
     <form (ngSubmit)="onSignUpDataFunction()" #SignUpDataForm="ngForm">
-
-  
-
       <div class="form-row">
         <div class="col-md-12 mb-3">
           <input type="file" class="form-control is-valid"  ngModel name="IMAGE"  required (change)="showPreviewImage($event)">

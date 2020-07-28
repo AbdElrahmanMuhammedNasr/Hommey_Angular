@@ -1,7 +1,9 @@
-<div *ngIf="!length" style="margin:0vh 45vw;">
+<app-header></app-header>
+
+<div *ngIf="!length" style="margin:0px 45vw;">
     <app-loading></app-loading>
 </div>
-    <div *ngIf="length" class="row d-flex justify-content-center  Content" >
+    <div *ngIf="length" class="row d-flex justify-content-center  Content" style="margin-top: 55px;" >
         <section class="col-md-7 offest-1 Items" style="height: 90vh;  overflow-y: scroll;" >
             
             <div class="container row  Cart" *ngFor="let cart of carts" >

@@ -1,5 +1,6 @@
 
-<div class="TheMainContiner">
+<div class="TheMainContiner" >
+
    <div class="container myClass">
 
      <div class="alert alert-danger" role="alert" *ngIf="emailOrPasswordWrong">
@@ -8,8 +9,10 @@
 
 
     <form (ngSubmit)="onLoginDataFunction()" #loginDataForm="ngForm">
-      <div class="form-row">
 
+
+
+      <div class="form-row">
         <div class="col-md-12 mb-3">
           <label >Email</label>
           <div class="input-group">
@@ -32,11 +35,6 @@
           </div>
         </div>
       </div>
-
-<!--      <div class="form-check">-->
-<!--        <input type="checkbox" class="form-check-input" [ngModel]=false name="CHECKBOX">-->
-<!--        <label class="form-check-label">Remember Me</label>-->
-<!--      </div>-->
 
       <button type="submit" class="btn btn-primary" [disabled]="!loginDataForm.valid" >Login</button>
       <button (click)="onGoToSignUpForm()" type="button" class="btn btn-danger">SignUp</button>

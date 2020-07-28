@@ -65,7 +65,10 @@ export class HeaderComponent implements OnInit , DoCheck {
     // the seting menu
     this.clickPhoto = false;
     // @ts-ignore
-    localStorage.clear('SuccessLogin');
+    // localStorage.clear('SuccessLogin');
+    localStorage.removeItem('theEmail');
+    localStorage.clear();
+
     // console.log('logout buttom'+ this.login);
     this.router.navigate(['/login']);
   }
