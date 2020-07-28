@@ -63,6 +63,9 @@ export class PostsModel {
   image: string;
   inger: string;
   dis: string;
+  address:string;
+  time:string;
+  category:string;
 
 
 }

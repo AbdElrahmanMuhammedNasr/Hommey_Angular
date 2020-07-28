@@ -21,12 +21,15 @@ export class FoodComponent implements OnInit {
 
 
 
-
+  owner = localStorage.getItem('theEmail');
+  user;
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe(params => {
       if (params.email == undefined) {
+        this.user = localStorage.getItem('theEmail');
         this.onGetUserPost(localStorage.getItem('theEmail'));
       } else {
+        this.user = params.email;
         this.onGetUserPost(params.email);
 
       }
