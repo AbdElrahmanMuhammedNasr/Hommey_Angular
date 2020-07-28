@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NotesService } from './Notes.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-notes',
@@ -8,7 +9,7 @@ import { NotesService } from './Notes.service';
 })
 export class NotesComponent implements OnInit {
 
-  constructor(private notes:NotesService) { }
+  constructor(private notes:NotesService, private router: Router) { }
   /********************************************/
   sommeDummyNotes = [];
   /****************************************/
@@ -25,6 +26,9 @@ export class NotesComponent implements OnInit {
       }
     );
   };
+  onShowNotifications() {
+     this.router.navigate(['/home'])
+ }
 
 
 }

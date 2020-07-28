@@ -33,12 +33,13 @@ export class ProductsService {
           map(resData => {
             const posts: PostsModel[] = [];
             for (const key in resData) {
-              if(resData[key].name == search){
+              if(resData[key].name == search ||resData[key].address == search || resData[key].category == search){
               if (resData.hasOwnProperty) {
                 posts.push({ ...resData[key], id: key });
               }
             }
           }
+          console.log(posts)
             return posts;
   
           })

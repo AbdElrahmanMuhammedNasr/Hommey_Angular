@@ -16,8 +16,10 @@ import { NotesComponent } from '../notes/notes.component';
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'home', component: HomePageComponent, canActivateChild: [AuthChildGuard], children: [
+    {path:'notifications', component: NotesComponent},
     {path: 'product/:id', component: ProductDetailsComponent},
-    ]},
+    ]
+  },
   {path: 'carts', component: CartComponent, canActivate:[AuthGuard]},
   {path: 'login', component: LoginComponent},
   {path: 'signUp', component: SignUpComponent},

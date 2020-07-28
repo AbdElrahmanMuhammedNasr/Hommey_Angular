@@ -11,13 +11,14 @@
         <img class="PHOTO card-img-top" [src]='item.image'  (click)="onGetProductDetails(item.id)">
       </div>
 
-      <div class="card-body" style="text-align: center">
-        <div class="card-footer">
+      <div class="card-body " style="text-align: center">
+        <div class="card-footer ">
             <h4>  <strong> {{item.name}} </strong> </h4>
         </div>
+      
 
-        <div class="card-footer">   
-          <h4>  {{item.price}} <small>EGP</small></h4>
+        <div class="card-footer  float-right">   
+          <h5>  {{item.price}} <small>EGP</small></h5>
         </div>
 
 
@@ -36,6 +37,7 @@
 <div>
   <router-outlet></router-outlet>
   <!--  <app-product-details></app-product-details>-->
+    <!-- notficatio -->
 </div>
 
 <!--/**********************************************/-->

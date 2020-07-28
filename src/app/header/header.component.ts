@@ -57,7 +57,8 @@ export class HeaderComponent implements OnInit , DoCheck {
      //to change state
         // this.store.dispatch({type: "OPEN_NOTIFICATIONS" });
       // to display notes
-      this.clickBell = !this.clickBell;
+      this.router.navigate(['/home/notifications'])
+      // this.clickBell = !this.clickBell;
       // this.router.navigate(['/home/notifications']);
   }
   onLogOut() {

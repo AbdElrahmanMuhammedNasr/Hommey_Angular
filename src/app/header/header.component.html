@@ -1,6 +1,6 @@
-<nav class="navbar fixed-top navbar-expand-lg  navbar-dark bg-primary">
+<nav class="navbar fixed-top navbar-expand-lg  navbar-dark" style="background-color: #ececec;" >
 
-  <a style="color: white" class="navbar-brand AskClass "> <span class="logo">Homeey </span></a>
+  <a style="color: white" class="navbar-brand AskClass "> <span class="logo" style="color: black;">Homeey </span></a>
 
   <div class="collapse navbar-collapse">
 
@@ -11,12 +11,12 @@
     <ul class="navbar-nav m-auto">
       <li class="nav-item my-2 my-lg-0 ">
         <a class="nav-link" routerLink="/home"> <span class="fa fa-home"
-            style="font-size: 20px; width:50px; text-align: center"></span></a>
+            style="font-size: 20px; width:50px; text-align: center; color: #575656;" ></span></a>
       </li>
 
       <li class="nav-item my-2 my-lg-0 " *ngIf="login" (click)="onShowNotifications()">
         <a class="nav-link">
-          <span class="fa fa-bell" style="font-size: 20px; width:50px; text-align: center"></span>
+          <span class="fa fa-bell" style="font-size: 20px; width:50px; text-align: center; color: #575656;"></span>
           <span *ngIf='disAppearnumberOfNots' class="badge badge-danger "
             style="font-size: 13px;">{{RealNumbeOfNotificatios}}</span>
         </a>
@@ -29,7 +29,7 @@
 
       <li class="nav-item my-2 my-lg-0 " *ngIf="login" style="margin-right: 200px;" (click)="onShowCarts()">
         <a class="nav-link">
-          <span class="fa fa-shopping-cart" style="font-size: 20px; width:50px; text-align: center"></span>
+          <span class="fa fa-shopping-cart" style="font-size: 20px; width:50px; text-align: center; color: #575656;"></span>
         </a>
       </li>
 
@@ -40,7 +40,7 @@
     <ul class="navbar-nav ml-auto" *ngIf="login">
 
 
-      <h5 style="margin: 0px 20px; color: white;">{{USER.firstName}}</h5>
+      <h5 style="margin: 0px 20px; color: black;">{{USER.firstName}}</h5>
       <div class="testPhoto" (click)="onShowMenu()">
         <img [src]="USER.image">
       </div>
@@ -63,22 +63,7 @@
   </div>
 </div>
 
-<div *ngIf="clickBell" >
 
 
-  <div class="Notifications" style="padding: 20px;">
-    <div class="form-row">
-      <div class="form-group col-md-10">
-        <h3>Notifications</h3>
-      </div>
-      <div class="form-group col-md-2">
-        <li class="fa fa-times" style="font-size: 25px;float: right; cursor: pointer" (click)="onShowNotifications()"></li>
-      </div>
-    </div>
-    <hr>
-  <app-notes></app-notes>
 
-</div>
-
-</div>
 

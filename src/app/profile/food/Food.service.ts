@@ -55,7 +55,7 @@ export class FoodService {
 
   deletePost(itemId: string) {
     this.fireDatabase.database.ref('/products/' + itemId).remove().then(function () {
-      console.log('Done');
+      // console.log('Done');
     });
   };
 
