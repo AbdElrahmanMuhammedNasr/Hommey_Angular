@@ -20,9 +20,7 @@
               <li><b>Phone : </b>{{USER.phone}}</li>
             </ul>
 
-            <ul class="social-icons">
-              <li><a [href]="USER.link"><i class="fa fa-facebook"></i></a></li>
-            </ul>
+           <br><BR>
             
              <div *ngIf="owner != user">
               <button (click)="onAction('report')" class="btn btn-warning">Report</button>

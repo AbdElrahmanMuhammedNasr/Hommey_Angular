@@ -7,7 +7,7 @@
 <div style="height: 98vh;overflow: hidden; ;overflow-y: scroll;" style="padding: 0px 40px;">
   <div class="row">
 
-    <div class="card col-sm-2" *ngFor="let item of ListOfPro" style="background-color: white ; color: #272727;">
+    <div class="card col-sm-2" *ngFor="let item of ListOfPro" style="background-color: white ; color: #272727; border-radius: 10px;overflow: hidden;">
 
       <div>
         <img class="PHOTO card-img-top" [src]='item.image'  (click)="onGetProductDetails(item.id)">
@@ -19,9 +19,9 @@
         </div>
       
 
-        <div class="card-footer  float-right">   
+        <!-- <div class="card- ">    -->
           <h5>  {{item.price}} <small>EGP</small></h5>
-        </div>
+        <!-- </div> -->
 
 
       </div>

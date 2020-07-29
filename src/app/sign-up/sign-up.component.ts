@@ -30,6 +30,8 @@ export class SignUpComponent implements OnInit {
   active = true;
 
 
+  Types=['producer','buyer'];
+
 
   ngOnInit(): void { }
 
@@ -65,10 +67,10 @@ export class SignUpComponent implements OnInit {
   }
 
   onSignUpDataFunction() {
-
     this.LoginData = {
       email: this.signUp.value.EMAIL,
-      password: this.signUp.value.PASSWORD
+      password: this.signUp.value.PASSWORD,
+      type:this.signUp.value.selectedCategory
     };
 
     this.otherData = {
@@ -78,7 +80,6 @@ export class SignUpComponent implements OnInit {
       phone: this.signUp.value.PHONE,
       date: this.signUp.value.DATE,
       email: this.signUp.value.EMAIL,
-      link: this.signUp.value.WEBSITE,
     }
 
     this.signUpService.addLoginUser(this.LoginData).subscribe(

@@ -8,12 +8,15 @@
         </div>
       </div>
 
-      <div class="form-row">
-        <div class="col-md-12 mb-3">
-          <label >Social Media Link</label>
-          <input type="text" class="form-control"  ngModel name="LINK"  required>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <label class="input-group-text" >Type</label>
         </div>
-      </div>
+          <select class="custom-select" ngModel name="selectedCategory" required> 
+            <option *ngFor="let type of Types" [value]="type" >{{type}}</option>
+          </select>
+        </div>
+    
       <!--/**********************************************************************************************************/-->
 
       <div class="form-row">
