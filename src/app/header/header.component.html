@@ -56,8 +56,10 @@
 
 <div class="Setting" *ngIf="clickPhoto">
   <div class="list-group" id="list-tab" role="tablist">
-    <a class="list-group-item list-group-item-action" routerLink="/profile" role="tab" aria-controls="profile">Profile
+
+    <a *ngIf="theRole == 'producer' " class="list-group-item list-group-item-action" routerLink="/profile" role="tab" aria-controls="profile">Profile
       <i class="fa fa-user" style="float: right; font-size: 20px"></i> </a>
+
     <a class="list-group-item list-group-item-action" role="tab" aria-controls=""> <button
         class="btn btn-outline-danger" style="width: 100%" (click)="onLogOut()">Logout </button></a>
   </div>

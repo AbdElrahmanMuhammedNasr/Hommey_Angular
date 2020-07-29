@@ -8,11 +8,14 @@ import { map } from 'rxjs/operators';
 export class LoginService {
   constructor(private http: HttpClient) { }
 
+  role;
+
   login(email: String, password: String) {
     return this.http.get('https://hommey-b9aa6.firebaseio.com/Login.json').pipe(
       map(resData => {
         for (const key in resData) {
           if (resData[key].email == email && resData[key].password == password) {
+            this.role = resData[key].type;
             return true;
           }
         }

@@ -23,9 +23,13 @@ export class LoginComponent implements OnInit {
     .subscribe(
       data =>{
         this.UserFound = data;
-        console.log(this.UserFound);
+        console.log('-----------------------------------------------------');
+        console.log(this.loginService.role);
+
         if (this.UserFound) {
           localStorage.setItem('SuccessLogin', 'True');
+          localStorage.setItem('Role', this.loginService.role);
+
           localStorage.setItem('theEmail', this.loginData.value.EMAIL);
           this.loginData.reset();
           this.router.navigate(['/home']);

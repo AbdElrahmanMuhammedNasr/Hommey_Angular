@@ -31,7 +31,11 @@ export class HeaderComponent implements OnInit , DoCheck {
   // input = document.querySelector('SearchInput');
 
   login ;
+  theRole ;
   ngOnInit(): void {
+    this.theRole = localStorage.getItem('Role');
+    console.log(this.theRole);
+    
     this.ongetUser();
     
     //  to get the number of notif..
@@ -88,6 +92,7 @@ export class HeaderComponent implements OnInit , DoCheck {
     this.userServie.getUserData(localStorage.getItem('theEmail')).subscribe(
       data => {
         this.USER = data;
+        // console.log(this.USER);
       }
     );
   }
