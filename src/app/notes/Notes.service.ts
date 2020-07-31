@@ -1,5 +1,7 @@
 import {Injectable} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { AngularFireDatabase } from '@angular/fire/database';
+
 import { map } from 'rxjs/operators';
 
 @Injectable({
@@ -8,7 +10,7 @@ import { map } from 'rxjs/operators';
 export class NotesService {
 
 
-  constructor(private http: HttpClient){}
+  constructor(private http: HttpClient, private fireDatabase: AngularFireDatabase){}
 
   getAllUserNotifications(email: string){
     return this.http.get('https://hommey-b9aa6.firebaseio.com/Notifications.json').pipe(
@@ -41,5 +43,15 @@ export class NotesService {
       }
       )
     )
+  }
+
+  addNewNotifications(nots:any){
+    return this.http.post(`https://hommey-b9aa6.firebaseio.com/Notifications.json`,nots);
+  }
+
+  deleteNotification(itemId: string) {
+    console.log(itemId);
+    this.fireDatabase.database.ref('/Notifications/' + itemId).remove().then(function () {
+    });
   }
 }

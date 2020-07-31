@@ -1,6 +1,6 @@
 .TheImage{
   width: 100%;
-  height: 100%;
+  height: 98vh;
   overflow: hidden;
   background-image: url('./ss.jpg');
   background-repeat: no-repeat;
@@ -9,11 +9,11 @@
   
 }
 .TheMainContiner{
-  width: 100%;
-  height: 100vh;
+  /* width: 100%; */
+  /* height: 100vh; */
   overflow: hidden;
-  
-  
+
+    
 }
 .Alart{
   text-align: center;

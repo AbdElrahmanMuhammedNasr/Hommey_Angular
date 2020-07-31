@@ -33,6 +33,7 @@ export class ProductDetailsComponent implements OnInit {
   };
   order = false;
   notifications:any;
+  manageOrder;
 
 
   ngOnInit(): void {
@@ -45,7 +46,11 @@ export class ProductDetailsComponent implements OnInit {
         this.productServiceService.getTheChef(this.product.email).subscribe(
           data=>{
             this.user= data;
-            // console.log(data);
+            if(localStorage.getItem('theEmail') == data.email){
+              this.manageOrder = false;
+            }else{
+              this.manageOrder = true;
+            }
           }
         );
       }
@@ -60,11 +65,12 @@ export class ProductDetailsComponent implements OnInit {
   orderProduct(id: string){
     this.userServie.getUserData(localStorage.getItem('theEmail')).subscribe(
       data=>{
+
         this.order= true;
         this.notifications ={
           user:localStorage.getItem('theEmail'),
           userImage:data.image,
-          order:this.product.name,
+          order:'Ordered : ' + this.product.name,
           email: this.user.email,
           time: new Date().toUTCString().split(' GMT')[0]
         };

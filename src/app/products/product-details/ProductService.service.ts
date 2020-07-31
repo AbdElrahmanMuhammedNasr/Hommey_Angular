@@ -47,19 +47,6 @@ export  class ProductServiceService {
    }
 
 
-  //   ],
-  //   chef: {
-  //     photo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQWVm2qROLviGnPJKfxcRRBTDBWyx_B_3Xn5HWMUY0VeKoK6t3X',
-  //     name: 'Abdo',
-  //     rate: [1, 1, 1, 1, 1],
-  //     dec: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.'
-  //   }
-  // }
-
-  // getProductDetails() {
-  //   return this.product;
-  // }
-
   orderProduct(nots:any){
     return this.http.post(`https://hommey-b9aa6.firebaseio.com/Notifications.json`,nots);
   }

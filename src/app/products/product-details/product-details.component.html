@@ -36,8 +36,9 @@
                 <p class="card-text" style="color: black"> <small>Discription</small> : <strong>{{product.dis}}</strong></p>
            </section>
            <br>
-              <button class="orderButton card-link btn btn-primary" style="float: right" *ngIf="isLogin!=null && !order"
+              <button class="orderButton card-link btn btn-primary" style="float: right" *ngIf="isLogin!=null && !order && manageOrder "
                 (click)="orderProduct(product.id)">Order This</button>
+
               <i *ngIf='order' class="fa fa-check" style="color: green;float: right; font-size: 30px;"
                 aria-hidden="true"></i>
 

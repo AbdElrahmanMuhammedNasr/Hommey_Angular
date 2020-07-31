@@ -12,7 +12,9 @@
   </div>
   <hr>
 
-  <section class="note" *ngFor="let notes of sommeDummyNotes">
+
+
+  <section class="note" *ngFor="let notes of sommeDummyNotes; let id = index">
 
 
     <div class="row" style="padding:20px">
@@ -22,14 +24,15 @@
       <section class="col-sm-7 offset-1 ">
         <a style="padding:20px; font-size: 23px;" routerLink="/profile" [queryParams]="{email:notes.user}">
           {{notes.user}}</a>
-        <span style="padding:20px"> Ordered <span style="font-size: 23px; color: #4242f1;">{{notes.order}} </span> </span>
+        <span style="padding:20px">  <span style="font-size: 23px; color: #4242f1;">{{notes.order}} </span> </span>
         <span style="padding:20px"> {{notes.time}} </span>
   
       </section>
+
   
-      <section class="col-sm-3  row">
-        <button class="col-sm-5  btn btn-danger" style="margin: 0px 10px;">Refuse</button>
-        <button class="col-sm-5  btn btn-primary" style="margin: 0px 10px;">Accept</button>
+      <section class="col-sm-3  row" *ngIf="notes.order.startsWith('Ordered : ')" >
+        <button (click)="onActions('Refuse',notes.user,id, notes.id)" class="col-sm-5  btn btn-danger" style="margin: 0px 10px;">Refuse</button>
+        <button (click)="onActions('Accept',notes.user,id, notes.id)" class="col-sm-5  btn btn-primary" style="margin: 0px 10px;">Accept</button>
       </section>
   
   
