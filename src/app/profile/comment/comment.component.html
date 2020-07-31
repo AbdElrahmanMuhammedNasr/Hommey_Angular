@@ -1,5 +1,5 @@
 <div>
-    <section class="container" style=" height: auto; box-shadow: 2px 15px 29px 15px grey; padding: 20px">
+    <section class="container" style=" height: auto; box-shadow: 0px 0px  15px #e4e4e4; padding: 20px">
         <!-- people though -->
         <h3>Comment</h3>
         <form class="container" style=" margin-top: 15px" (ngSubmit)='onAddReview()' #AddNewComment="ngForm" >
@@ -17,7 +17,7 @@
       
       
       
-      <section class="container" style=" height: auto; box-shadow: 2px 15px 29px 15px grey; padding: 20px">
+      <section class="container" style=" height: auto; box-shadow: 0px 0px  15px #bebebe; padding: 20px">
         <!-- people though -->
         <h3>Recent Reviews</h3>
       
@@ -28,19 +28,30 @@
         </div>
       
         <div *ngIf="reviewPeople.length != 0">
-          <div  class="row container" style=" margin-top: 15px" *ngFor="let review of reviewPeople">
+          <div  class="row container" style=" margin-top: 2vh" *ngFor="let review of reviewPeople">
+
             <section class="col-md-3">
               <img style="width: 10vw;height: 23vh;" [src]="review.image">
             </section>
+
             <section class="col-md-9">
-              <h3>{{review.name}}</h3>
+
+              <span style="font-size: 20px;">{{review.name.split('@')[0]}}</span>
+              <span style="margin: 0px 10px;">  {{review.name}}  </span>
+              <br>
+              <hr>
+
               <span class="fa fa-star" style="color: gold" > </span>
-              <span style="margin: 0px 20px;"> {{review.rate}} /5  </span>
+              <span style="margin: 0px 20px;"> {{review.rate}} / 10  </span>
+              <hr>
+
               <p> {{review.review}}</p>
-              <h4> - {{review.postedin.split(":")[0]}} </h4>
+              <hr>
+
+              <h4> {{review.postedin}} </h4>
       
             </section>
-      
+
           </div>
       
         </div>

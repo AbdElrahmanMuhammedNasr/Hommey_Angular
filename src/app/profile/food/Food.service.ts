@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { PostsModel } from 'src/app/products/Products.service';
+import { UPDATE } from '@ngrx/store';
 
 
 
@@ -58,6 +59,10 @@ export class FoodService {
       // console.log('Done');
     });
   };
+  updatePrice( Uprice, id:string){
+    this.fireDatabase.database.ref(`products/${id}`).update({price:Uprice})
+
+  }
 
 
 

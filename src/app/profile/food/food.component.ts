@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FoodService } from './Food.service';
 import { ProductServiceService } from 'src/app/products/product-details/ProductService.service';
 import { ActivatedRoute } from '@angular/router';
+import { NgForm } from '@angular/forms';
+import { AngularFireDatabase } from '@angular/fire/database';
+
 
 @Component({
   selector: 'app-food',
@@ -18,6 +21,9 @@ export class FoodComponent implements OnInit {
 
   cartProduct;
   notifications;
+
+  @ViewChild('AddNewPrice') newPrice:NgForm;
+
 
 
 
@@ -38,8 +44,8 @@ export class FoodComponent implements OnInit {
   }
 
   onDeleteItem(itemId, id) {
-    console.log(itemId);
-    console.log(id);
+    // console.log(itemId);
+    // console.log(id);
     this.foodService.deletePost(itemId);
     this.myFoodList.splice(id, 1);
 
@@ -78,5 +84,11 @@ export class FoodComponent implements OnInit {
         console.log(data);
       }
     )
+  }
+
+  onUpdateItem(id, listId){
+    this.myFoodList[listId].price = this.newPrice.value.newPriceUpdate;
+    this.foodService.updatePrice(this.newPrice.value.newPriceUpdate, id);
+    this.newPrice.reset();
   }
 }

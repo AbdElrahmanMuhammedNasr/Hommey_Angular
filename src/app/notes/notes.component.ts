@@ -33,13 +33,13 @@ export class NotesComponent implements OnInit {
      this.router.navigate(['/home'])
  }
 
- onActions(what, who, listId,id){
+ onActions(what, who, listId,id, order){
   this.userServie.getUserData(localStorage.getItem('theEmail')).subscribe(
     data=>{
       this.notifications ={
         user:localStorage.getItem('theEmail'),
         userImage:data.image,
-        order: what + ' your order',
+        order: what + ' the order '+order.split(':')[1] ,
         email: who,
         time: new Date().toUTCString().split(' GMT')[0]
       };
