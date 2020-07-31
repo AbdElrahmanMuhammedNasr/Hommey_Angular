@@ -25,7 +25,7 @@ import { AddNew } from './profile/addproduct/add.service';
 
 
 import { AngularFireModule } from "@angular/fire";
-import { environment } from "../environments/environment";
+import { environment } from "../environments/environment.prod";
 import { LoadingComponent } from './Z-Share/loading/loading.component';
 
 import {StoreModule} from '@ngrx/store'

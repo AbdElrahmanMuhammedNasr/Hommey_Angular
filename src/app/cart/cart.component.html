@@ -1,14 +1,14 @@
 <app-header></app-header>
 
-<div *ngIf="!length" style="margin:0px 45vw;">
+<div *ngIf="!length" style="margin:20vh 45vw;">
     <app-loading></app-loading>
 </div>
     <div *ngIf="length" class="row d-flex justify-content-center  Content" style="margin-top: 55px;" >
         <section class="col-md-7 offest-1 Items" style="height: 90vh;  overflow-y: scroll;" >
             
-            <div class="container row  Cart" *ngFor="let cart of carts" >
+            <div class="container row  Cart" *ngFor="let cart of carts" style="height: 30vh;" >
                 <div class="col-sm-3" >
-                    <img style="width: 100%; height: 100%;" [src]='cart.image'>
+                    <img style="width: 100%; height: 250px;" [src]='cart.image'>
                 </div>
                 <div class=" col-sm-9">
                     

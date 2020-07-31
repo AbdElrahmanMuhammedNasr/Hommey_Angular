@@ -32,11 +32,11 @@
               <label >Name</label>
               <input type="text" class="form-control"  placeholder="Name"  ngModel name="name" required minlength="7" #FirstNameValidation="ngModel"  >
     
-              <div class="invalid-feedback" *ngIf="!FirstNameValidation.valid && FirstNameValidation.touched">
+              <div style="color: red;" *ngIf="!FirstNameValidation.valid && FirstNameValidation.touched">
                 Please choose a Valid Name.
               </div>
     
-              <div class="valid-feedback" *ngIf="FirstNameValidation.valid && FirstNameValidation.touched">
+              <div style="color: #00720f;"  *ngIf="FirstNameValidation.valid && FirstNameValidation.touched">
                 Looks good!
               </div>
             </div>
@@ -44,24 +44,24 @@
               <label >Price</label>
               <input type="text" class="form-control"  placeholder="Price"  ngModel name="price" required minlength="2" #LastNameValidation="ngModel" >
     
-              <div class="invalid-feedback" *ngIf="!LastNameValidation.valid && LastNameValidation.touched">
-                Please choose a Valid Name.
+              <div style="color: red;" *ngIf="!LastNameValidation.valid && LastNameValidation.touched">
+                Please choose a Valid price.
               </div>
     
-              <div class="valid-feedback" *ngIf="LastNameValidation.valid && LastNameValidation.touched">
+              <div style="color: #00720f;"  *ngIf="LastNameValidation.valid && LastNameValidation.touched">
                 Looks good!
               </div>
             </div>
 
             <div class="col-md-4 mb-3">
               <label >Time</label>
-              <input type="text" class="form-control"  placeholder="time to ordering"  ngModel name="time" required minlength="2" #TimeValidation="ngModel" >
+              <input type="number" class="form-control"  placeholder="time to ordering"  ngModel name="time" required minlength="2" #TimeValidation="ngModel" >
     
-              <div class="invalid-feedback" *ngIf="!TimeValidation.valid && TimeValidation.touched">
-                Please choose a Valid Name.
+              <div style="color: red;" *ngIf="!TimeValidation.valid && TimeValidation.touched">
+                Please choose a Valid Time.
               </div>
     
-              <div class="valid-feedback" *ngIf="TimeValidation.valid && TimeValidation.touched">
+              <div style="color: #00720f;"  *ngIf="TimeValidation.valid && TimeValidation.touched">
                 Looks good!
               </div>
             </div>
@@ -89,11 +89,11 @@
               <label>Ingredients</label>
               <input type="text" class="form-control"  placeholder="Ingredients splited with   *  "  ngModel name="inger" required  #ingredientsValidation="ngModel"  >
     
-              <div class="invalid-feedback" *ngIf="!ingredientsValidation.valid && ingredientsValidation.touched">
-                Please choose a Valid Name.
+              <div style="color: red;" *ngIf="!ingredientsValidation.valid && ingredientsValidation.touched">
+                Please choose a Valid Ingredients.
               </div>
     
-              <div class="valid-feedback" *ngIf="ingredientsValidation.valid && ingredientsValidation.touched">
+              <div style="color: #00720f;"  *ngIf="ingredientsValidation.valid && ingredientsValidation.touched">
                 Looks good!
               </div>
             </div>
@@ -104,11 +104,11 @@
               <label>Discribe</label>
               <input type="text" class="form-control"  placeholder="Discribe"  ngModel name="dis" required  #DiscribeValidation="ngModel"  >
     
-              <div class="invalid-feedback" *ngIf="!DiscribeValidation.valid && DiscribeValidation.touched">
-                Please choose a Valid Name.
+              <div style="color: red;" *ngIf="!DiscribeValidation.valid && DiscribeValidation.touched">
+                Please choose a Valid Discribtion.
               </div>
     
-              <div class="valid-feedback" *ngIf="DiscribeValidation.valid && DiscribeValidation.touched">
+              <div style="color: #00720f;"  *ngIf="DiscribeValidation.valid && DiscribeValidation.touched">
                 Looks good!
               </div>
             </div>
@@ -120,11 +120,11 @@
               <label>Product Address</label>
               <input type="text" class="form-control "  placeholder="Please Be More Spicfic"  ngModel name="address" required  #AddressValidation="ngModel"  >
     
-              <div class="invalid-feedback" *ngIf="!AddressValidation.valid && AddressValidation.touched">
+              <div style="color: red;" *ngIf="!AddressValidation.valid && AddressValidation.touched">
                 Please choose a Valid Name.
               </div>
     
-              <div class="valid-feedback" *ngIf="AddressValidation.valid && AddressValidation.touched">
+              <div style="color: #00720f;"  *ngIf="AddressValidation.valid && AddressValidation.touched">
                 Looks good!
               </div>
             </div>

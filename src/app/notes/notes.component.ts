@@ -21,7 +21,7 @@ export class NotesComponent implements OnInit {
   onGetAllNotification(){
     this.notes.getAllUserNotifications(localStorage.getItem('theEmail')).subscribe(
       data =>{
-        this.sommeDummyNotes = data;
+        this.sommeDummyNotes = data.reverse();
         console.log(this.sommeDummyNotes)
       }
     );

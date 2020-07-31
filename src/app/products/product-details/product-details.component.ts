@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ProductServiceService } from './ProductService.service';
-import { Route } from '@angular/compiler/src/core';
 import { PostsModel } from '../Products.service';
 import { UserService } from 'src/app/profile/user/User.service';
 

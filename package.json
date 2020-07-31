@@ -49,5 +49,17 @@
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
     "typescript": "~3.8.3"
-  }
+  },
+  "description": "",
+  "main": "karma.conf.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AbdElrahmanMuhammedNasr/Hommey_Angular.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AbdElrahmanMuhammedNasr/Hommey_Angular/issues"
+  },
+  "homepage": "https://github.com/AbdElrahmanMuhammedNasr/Hommey_Angular#readme"
 }

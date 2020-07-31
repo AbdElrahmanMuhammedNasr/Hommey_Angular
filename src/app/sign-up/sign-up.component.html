@@ -22,25 +22,25 @@
       <div class="form-row">
         <div class="col-md-6 mb-3">
           <label >First name</label>
-          <input type="text" class="form-control"  placeholder="First name"  ngModel name="FIRSTNAME" required minlength="7" #FirstNameValidation="ngModel"  >
+          <input type="text" class="form-control"  placeholder="First name (at least 3 character)"  ngModel name="FIRSTNAME" required minlength="3" #FirstNameValidation="ngModel"  >
 
-          <div class="invalid-feedback" *ngIf="!FirstNameValidation.valid && FirstNameValidation.touched">
+          <div  style="color: red;" *ngIf="!FirstNameValidation.valid && FirstNameValidation.touched">
             Please choose a Valid Name.
           </div>
 
-          <div class="valid-feedback" *ngIf="FirstNameValidation.valid && FirstNameValidation.touched">
+          <div style="color: #00720f;"*ngIf="FirstNameValidation.valid && FirstNameValidation.touched">
             Looks good!
           </div>
         </div>
         <div class="col-md-6 mb-3">
           <label >Last name</label>
-          <input type="text" class="form-control"  placeholder="Last name"  ngModel name="LASTNAME" required minlength="3" #LastNameValidation="ngModel" >
+          <input type="text" class="form-control"  placeholder="Last name (at least 3 character)"  ngModel name="LASTNAME" required minlength="3" #LastNameValidation="ngModel" >
 
-          <div class="invalid-feedback" *ngIf="!LastNameValidation.valid && LastNameValidation.touched">
+          <div  style="color: red;" *ngIf="!LastNameValidation.valid && LastNameValidation.touched">
             Please choose a Valid Name.
           </div>
 
-          <div class="valid-feedback" *ngIf="LastNameValidation.valid && LastNameValidation.touched">
+          <div style="color: #00720f;"*ngIf="LastNameValidation.valid && LastNameValidation.touched">
             Looks good!
           </div>
         </div>
@@ -53,11 +53,11 @@
           <label >Phone</label>
           <input type="tel" class="form-control"  placeholder="Phone" ngModel name="PHONE" required minlength="11" maxlength="11" #phoneValidation="ngModel">
 
-          <div class="invalid-feedback" *ngIf="!phoneValidation.valid && phoneValidation.touched">
+          <div style="color: red;"  *ngIf="!phoneValidation.valid && phoneValidation.touched">
             Please choose a Valid Phone.
           </div>
 
-          <div class="valid-feedback" *ngIf="phoneValidation.valid && phoneValidation.touched">
+          <div style="color: #00720f;"  *ngIf="phoneValidation.valid && phoneValidation.touched">
             Looks good!
           </div>
 
@@ -65,11 +65,11 @@
         <div class="col-md-6 mb-3">
           <label >Date of Birth</label>
           <input type="date" class="form-control"  ngModel name="DATE" required #dataValidation="ngModel">
-          <div class="invalid-feedback" *ngIf="!dataValidation.valid && dataValidation.touched">
+          <div  style="color: red;" *ngIf="!dataValidation.valid && dataValidation.touched">
             Please choose a valid Date.
           </div>
 
-          <div class="valid-feedback" *ngIf="dataValidation.valid && dataValidation.touched">
+          <div style="color: #00720f;"*ngIf="dataValidation.valid && dataValidation.touched">
             Looks good!
           </div>
         </div>
@@ -86,12 +86,12 @@
             <div class="input-group-prepend">
               <span class="input-group-text" >@</span>
             </div>
-            <input type="text" class="form-control "  placeholder="Email" aria-describedby="inputGroupPrepend3" ngModel name="EMAIL" required email #emailValidation="ngModel">
-            <div class="invalid-feedback" *ngIf="!emailValidation.valid && emailValidation.touched">
+            <input type="text" class="form-control "  placeholder="Email (Eaxmple@gmail.com)" aria-describedby="inputGroupPrepend3" ngModel name="EMAIL" required email #emailValidation="ngModel">
+            <div  style="color: red;" *ngIf="!emailValidation.valid && emailValidation.touched">
               Please choose a Valid Email.
             </div>
 
-            <div class="valid-feedback" *ngIf="emailValidation.valid && emailValidation.touched">
+            <div style="color: #00720f;"*ngIf="emailValidation.valid && emailValidation.touched">
               Looks good!
             </div>
           </div>
@@ -104,12 +104,12 @@
             <div class="input-group-prepend">
               <span class="input-group-text" > <li class="fa fa-key"></li> </span>
             </div>
-            <input type="password" class="form-control "  placeholder="Password" aria-describedby="inputGroupPrepend3" ngModel name="PASSWORD" required minlength="10" #passwordValidation="ngModel">
-            <div class="invalid-feedback" *ngIf="!passwordValidation.valid && passwordValidation.touched">
+            <input type="password" class="form-control"  placeholder="Password (at least 10 character)" aria-describedby="inputGroupPrepend3" ngModel name="PASSWORD" required minlength="10" #passwordValidation="ngModel">
+            <div  style="color: red;" *ngIf="!passwordValidation.valid && passwordValidation.touched">
               Please choose a Valid Password.
             </div>
 
-            <div class="valid-feedback" *ngIf="passwordValidation.valid && passwordValidation.touched">
+            <div style="color: #00720f;"*ngIf="passwordValidation.valid && passwordValidation.touched">
               Looks good!
             </div>
           </div>

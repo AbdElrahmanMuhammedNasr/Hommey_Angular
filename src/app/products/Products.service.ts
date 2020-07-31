@@ -33,7 +33,7 @@ export class ProductsService {
           map(resData => {
             const posts: PostsModel[] = [];
             for (const key in resData) {
-              if(resData[key].name == search ||resData[key].address == search || resData[key].category == search){
+              if(resData[key].name.includes(search.toLowerCase()) ||resData[key].address.includes(search.toLowerCase()) || resData[key].category .includes(search.toLowerCase())){
               if (resData.hasOwnProperty) {
                 posts.push({ ...resData[key], id: key });
               }

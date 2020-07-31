@@ -47,15 +47,14 @@ export class AddproductComponent implements OnInit {
       this.obj = {
         'email': localStorage.getItem('theEmail'),
         'image': this.fb,
-        'name': this.addData.value.name,
+        'name': this.addData.value.name.toLowerCase(),
         'price': +this.addData.value.price,
         'dis': this.addData.value.dis,
         'inger': this.addData.value.inger,
-        'address': this.addData.value.address,
-        'category': this.addData.value.selectedCategory,
+        'address': this.addData.value.address.toLowerCase(),
+        'category': this.addData.value.selectedCategory.toLowerCase(),
         'time':this.addData.value.time
       }
-      // console.log(this.obj)
       this.addService.addNewOne(this.obj)
         .subscribe(
           data => {

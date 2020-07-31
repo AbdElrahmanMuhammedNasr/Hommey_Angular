@@ -7,7 +7,7 @@
 <div style="height: 98vh;overflow: hidden; ;overflow-y: scroll;" style="padding: 0px 40px;">
   <div class="row">
 
-    <div class="card col-xl-2 col-md-4 col-sm-12" *ngFor="let item of ListOfPro" style="background-color: white ; color: #272727; border-radius: 10px;overflow: hidden;">
+    <div class="card col-xl-2 col-md-6 col-sm-12" *ngFor="let item of ListOfPro" style="background-color: white ; color: #272727; border-radius: 10px;overflow: hidden;">
 
       <div>
         <img class="PHOTO card-img-top" [src]='item.image'  (click)="onGetProductDetails(item.id)">
