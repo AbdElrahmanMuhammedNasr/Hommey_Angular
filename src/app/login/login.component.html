@@ -1,14 +1,14 @@
 <div class="TheImage"></div>
 <div class="TheMainContiner" >
 
-   <div class="container myClass">
+   <div class="container myClass" style="background-color: white;">
 
      <div class="alert alert-danger" role="alert" *ngIf="emailOrPasswordWrong">
        Email or Password are not Correct
      </div>
 
 
-    <form (ngSubmit)="onLoginDataFunction()" #loginDataForm="ngForm">
+    <form (ngSubmit)="onLoginDataFunction()" #loginDataForm="ngForm" >
 
 
       <div class="form-row">

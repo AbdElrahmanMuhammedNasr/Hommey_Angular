@@ -20,6 +20,7 @@ export class UserComponent implements OnInit {
   user;
 
   USER = null;
+  reportSend = false;
 
  
 
@@ -55,6 +56,7 @@ export class UserComponent implements OnInit {
   obj;
 
   onAction(action) {
+    this.reportSend = true;
     let ownerProfile = localStorage.getItem('theEmail');
     this.obj = {
       Owner: ownerProfile,

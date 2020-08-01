@@ -8,7 +8,7 @@
         <div class="col-md-1 col-lg-2"></div>
         <div class="col-md-10 col-lg-8">
           <div class="intro">
-            <div class="profile-img"><img [src]="USER.image"></div>
+            <div class="profile-img"><img [src]="USER.image" style="height: 100%;"></div>
 
             <h2><b>{{USER.firstName}} {{USER.lastName}}</b></h2>
            
@@ -23,7 +23,8 @@
            <br><BR>
             
              <div *ngIf="owner != user">
-              <button (click)="onAction('report')" class="btn btn-warning">Report</button>
+               <h6 *ngIf="reportSend" style="font-weight: bold;">Repot Sent...</h6>
+              <button *ngIf="!reportSend" (click)="onAction('report')" class="btn btn-warning">Report</button>
             </div>
           </div><!-- intro -->
         </div><!-- col-sm-8 -->

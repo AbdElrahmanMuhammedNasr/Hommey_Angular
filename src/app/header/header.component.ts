@@ -28,6 +28,8 @@ export class HeaderComponent implements OnInit , DoCheck {
   RealNumbeOfNotificatios ;
   USER = null;
 
+  open = false;
+
   // input = document.querySelector('SearchInput');
 
   login ;
@@ -61,6 +63,8 @@ export class HeaderComponent implements OnInit , DoCheck {
      //to change state
         // this.store.dispatch({type: "OPEN_NOTIFICATIONS" });
       // to display notes
+      this.open = true;
+
       this.router.navigate(['/home/notifications'])
       // this.clickBell = !this.clickBell;
       // this.router.navigate(['/home/notifications']);

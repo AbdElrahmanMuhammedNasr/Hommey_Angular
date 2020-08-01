@@ -42,7 +42,9 @@ export class ProductsComponent implements OnInit {
   onGetOneProduct(search){
     this.productsService. getonePost(search).subscribe(
       data => {
-        this.ListOfPro = data;
+
+          this.ListOfPro = data;
+       
       }
     );
 

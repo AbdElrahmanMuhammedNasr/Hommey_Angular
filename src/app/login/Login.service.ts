@@ -24,5 +24,18 @@ export class LoginService {
       })
     );
   }
+  checkLogin(email: String) {
+    return this.http.get('https://hommey-b9aa6.firebaseio.com/Login.json').pipe(
+      map(resData => {
+        for (const key in resData) {
+          if (resData[key].email == email) {
+            return true;
+          }
+        }
+        return false;
+
+      })
+    );
+  }
 
 }

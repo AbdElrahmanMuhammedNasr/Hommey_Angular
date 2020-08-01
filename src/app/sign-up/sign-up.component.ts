@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { SignUpService } from './SignUp.service';
 import { AngularFireStorage } from "@angular/fire/storage";
 import { finalize } from 'rxjs/operators';
+import { LoginService } from '../login/Login.service';
 
 // import *  as firebase from 'firebase';
 
@@ -16,7 +17,8 @@ export class SignUpComponent implements OnInit {
 
   constructor(private router: Router,
     private signUpService: SignUpService,
-    private storage: AngularFireStorage
+    private storage: AngularFireStorage,
+    private loginService: LoginService
 
   ) { }
 
@@ -29,8 +31,13 @@ export class SignUpComponent implements OnInit {
   fb;
   active = true;
 
+  emailFound = false;
 
-  Types=['producer','buyer'];
+  UserFound ;
+
+
+
+  Types = ['producer', 'buyer'];
 
 
   ngOnInit(): void { }
@@ -67,34 +74,55 @@ export class SignUpComponent implements OnInit {
   }
 
   onSignUpDataFunction() {
-    this.LoginData = {
-      email: this.signUp.value.EMAIL,
-      password: this.signUp.value.PASSWORD,
-      type:this.signUp.value.selectedCategory
-    };
+    this.loginService.checkLogin(this.signUp.value.EMAIL)
+      .subscribe(
+        data => {
+          this.UserFound = data;
 
-    this.otherData = {
-      image: this.fb,
-      firstName: this.signUp.value.FIRSTNAME,
-      lastName: this.signUp.value.LASTNAME,
-      phone: this.signUp.value.PHONE,
-      date: this.signUp.value.DATE,
-      email: this.signUp.value.EMAIL,
-    }
+          if (this.UserFound) {
+            // console.log('found');
+            // console.log(this.UserFound);
 
-    this.signUpService.addLoginUser(this.LoginData).subscribe(
-      data => {
-        console.log(data)
-      }
-    )
-    this.signUpService.addNewUser(this.otherData).subscribe(
-      data => {
-        this.active = false;
-        this.router.navigate(['/login']);
-        // console.log(data);
-      }
-    );
-    // console.log(this.signUp.value);
+            this.emailFound = true;
+
+          } else {
+            // console.log('Not found');
+            // console.log(this.UserFound);
+
+            this.LoginData = {
+              email: this.signUp.value.EMAIL,
+              password: this.signUp.value.PASSWORD,
+              type: this.signUp.value.selectedCategory
+            };
+
+            this.otherData = {
+              image: this.fb,
+              firstName: this.signUp.value.FIRSTNAME,
+              lastName: this.signUp.value.LASTNAME,
+              phone: this.signUp.value.PHONE,
+              date: this.signUp.value.DATE,
+              email: this.signUp.value.EMAIL,
+            }
+
+            this.signUpService.addLoginUser(this.LoginData).subscribe(
+              data => {
+                // console.log(data)
+              }
+            )
+            this.signUpService.addNewUser(this.otherData).subscribe(
+              data => {
+                this.active = false;
+                this.router.navigate(['/login']);
+                // console.log(data);
+              }
+            );
+
+          }
+        }
+      )
+
+
+
   }
 
   onGoToLoginForm() {

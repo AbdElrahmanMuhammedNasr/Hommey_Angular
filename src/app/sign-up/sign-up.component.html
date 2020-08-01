@@ -1,131 +1,150 @@
 <div class="TheImage"></div>
- <div class="MyContainer" >
-   
-    <form (ngSubmit)="onSignUpDataFunction()" #SignUpDataForm="ngForm">
-      <div class="form-row">
-        <div class="col-md-12 mb-3">
-          <input type="file" class="form-control"  ngModel name="IMAGE"  required (change)="showPreviewImage($event)">
+<div class="MyContainer">
+  <form (ngSubmit)="onSignUpDataFunction()" #SignUpDataForm="ngForm">
+
+    <div class="alert alert-danger" role="alert" *ngIf="emailFound">
+      May be this account is already found
+    </div>
+
+
+    <div class="form-row">
+      <div class="col-md-12 mb-3">
+        <input type="file" class="form-control" ngModel name="IMAGE" required (change)="showPreviewImage($event)">
+      </div>
+    </div>
+
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <label class="input-group-text">Type</label>
+      </div>
+      <select class="custom-select" ngModel name="selectedCategory" required>
+        <option *ngFor="let type of Types" [value]="type">{{type}}</option>
+      </select>
+    </div>
+
+    <!--/**********************************************************************************************************/-->
+
+    <div class="form-row">
+      <div class="col-md-6 mb-3">
+        <label>First name</label>
+        <input type="text" class="form-control" placeholder="First name (at least 3 character)" ngModel name="FIRSTNAME"
+          required minlength="3" #FirstNameValidation="ngModel">
+
+        <div style="color: red;" *ngIf="!FirstNameValidation.valid && FirstNameValidation.touched">
+          Please choose a Valid Name.
+        </div>
+
+        <div style="color: #00720f;" *ngIf="FirstNameValidation.valid && FirstNameValidation.touched">
+          Looks good!
+        </div>
+      </div>
+      <div class="col-md-6 mb-3">
+        <label>Last name</label>
+        <input type="text" class="form-control" placeholder="Last name (at least 3 character)" ngModel name="LASTNAME"
+          required minlength="3" #LastNameValidation="ngModel">
+
+        <div style="color: red;" *ngIf="!LastNameValidation.valid && LastNameValidation.touched">
+          Please choose a Valid Name.
+        </div>
+
+        <div style="color: #00720f;" *ngIf="LastNameValidation.valid && LastNameValidation.touched">
+          Looks good!
         </div>
       </div>
 
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <label class="input-group-text" >Type</label>
+    </div>
+    <!--/**********************************************************************************************************/-->
+
+    <div class="form-row">
+      <div class="col-md-6 mb-3">
+        <label>Phone</label>
+        <input type="tel" class="form-control" placeholder="Phone" ngModel name="PHONE" required minlength="11"
+          maxlength="11" #phoneValidation="ngModel">
+
+        <div style="color: red;" *ngIf="!phoneValidation.valid && phoneValidation.touched">
+          Please choose a Valid Phone.
         </div>
-          <select class="custom-select" ngModel name="selectedCategory" required> 
-            <option *ngFor="let type of Types" [value]="type" >{{type}}</option>
-          </select>
-        </div>
-    
-      <!--/**********************************************************************************************************/-->
 
-      <div class="form-row">
-        <div class="col-md-6 mb-3">
-          <label >First name</label>
-          <input type="text" class="form-control"  placeholder="First name (at least 3 character)"  ngModel name="FIRSTNAME" required minlength="3" #FirstNameValidation="ngModel"  >
-
-          <div  style="color: red;" *ngIf="!FirstNameValidation.valid && FirstNameValidation.touched">
-            Please choose a Valid Name.
-          </div>
-
-          <div style="color: #00720f;"*ngIf="FirstNameValidation.valid && FirstNameValidation.touched">
-            Looks good!
-          </div>
-        </div>
-        <div class="col-md-6 mb-3">
-          <label >Last name</label>
-          <input type="text" class="form-control"  placeholder="Last name (at least 3 character)"  ngModel name="LASTNAME" required minlength="3" #LastNameValidation="ngModel" >
-
-          <div  style="color: red;" *ngIf="!LastNameValidation.valid && LastNameValidation.touched">
-            Please choose a Valid Name.
-          </div>
-
-          <div style="color: #00720f;"*ngIf="LastNameValidation.valid && LastNameValidation.touched">
-            Looks good!
-          </div>
+        <div style="color: #00720f;" *ngIf="phoneValidation.valid && phoneValidation.touched">
+          Looks good!
         </div>
 
       </div>
-      <!--/**********************************************************************************************************/-->
-
-      <div class="form-row">
-        <div class="col-md-6 mb-3">
-          <label >Phone</label>
-          <input type="tel" class="form-control"  placeholder="Phone" ngModel name="PHONE" required minlength="11" maxlength="11" #phoneValidation="ngModel">
-
-          <div style="color: red;"  *ngIf="!phoneValidation.valid && phoneValidation.touched">
-            Please choose a Valid Phone.
-          </div>
-
-          <div style="color: #00720f;"  *ngIf="phoneValidation.valid && phoneValidation.touched">
-            Looks good!
-          </div>
-
-        </div>
-        <div class="col-md-6 mb-3">
-          <label >Date of Birth</label>
-          <input type="date" class="form-control"  ngModel name="DATE" required #dataValidation="ngModel">
-          <div  style="color: red;" *ngIf="!dataValidation.valid && dataValidation.touched">
-            Please choose a valid Date.
-          </div>
-
-          <div style="color: #00720f;"*ngIf="dataValidation.valid && dataValidation.touched">
-            Looks good!
-          </div>
+      <div class="col-md-6 mb-3">
+        <label>Date of Birth</label>
+        <input type="date" class="form-control" ngModel name="DATE" required #dataValidation="ngModel">
+        <div style="color: red;" *ngIf="!dataValidation.valid && dataValidation.touched">
+          Please choose a valid Date.
         </div>
 
+        <div style="color: #00720f;" *ngIf="dataValidation.valid && dataValidation.touched">
+          Looks good!
+        </div>
       </div>
 
-<!--/**********************************************************************************************************/-->
+    </div>
 
-      <div class="form-row">
+    <!--/**********************************************************************************************************/-->
 
-        <div class="col-md-6 mb-3">
-          <label >Email</label>
-          <div class="input-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text" >@</span>
-            </div>
-            <input type="text" class="form-control "  placeholder="Email (Eaxmple@gmail.com)" aria-describedby="inputGroupPrepend3" ngModel name="EMAIL" required email #emailValidation="ngModel">
-            <div  style="color: red;" *ngIf="!emailValidation.valid && emailValidation.touched">
-              Please choose a Valid Email.
-            </div>
+    <div class="form-row">
 
-            <div style="color: #00720f;"*ngIf="emailValidation.valid && emailValidation.touched">
-              Looks good!
-            </div>
+      <div class="col-md-12 mb-3">
+        <label>Email</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">@</span>
           </div>
+
+
+          <input type="email" class="form-control" placeholder="Email (Eaxmple@gmail.com)" email
+            aria-describedby="inputGroupPrepend3" ngModel name="EMAIL" required #emailValidation="ngModel">
+          <br>
+
         </div>
-
-
-        <div class="col-md-6 mb-3">
-          <label >Password</label>
-          <div class="input-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text" > <li class="fa fa-key"></li> </span>
-            </div>
-            <input type="password" class="form-control"  placeholder="Password (at least 10 character)" aria-describedby="inputGroupPrepend3" ngModel name="PASSWORD" required minlength="10" #passwordValidation="ngModel">
-            <div  style="color: red;" *ngIf="!passwordValidation.valid && passwordValidation.touched">
-              Please choose a Valid Password.
-            </div>
-
-            <div style="color: #00720f;"*ngIf="passwordValidation.valid && passwordValidation.touched">
-              Looks good!
-            </div>
-          </div>
-        </div>
-
       </div>
 
-   
- 
+      <div style="color: red;" *ngIf="!emailValidation.valid && emailValidation.touched">
+        Please choose a Valid Email .
+      </div>
 
-      <button *ngIf="active" class="btn btn-primary" type="submit" [disabled]="!SignUpDataForm.valid">SignUp</button>
-      <button style="float: right" (click)="onGoToLoginForm()" type="button" class="btn btn-outline-danger">Login</button>
+      <div style="color: #00720f;" *ngIf="emailValidation.valid && emailValidation.touched">
+        Looks good!
+      </div>
+    </div>
 
-    </form>
-  </div>
+    <div class="form-row">
+
+      <div class="col-md-12 mb-3">
+        <label>Password</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+              <li class="fa fa-key"></li>
+            </span>
+          </div>
+          <input type="password" class="form-control" placeholder="Password (at least 10 character)"
+            aria-describedby="inputGroupPrepend3" ngModel name="PASSWORD" required minlength="10"
+            #passwordValidation="ngModel">
+
+
+        </div>
+        <div style="color: red;" *ngIf="!passwordValidation.valid && passwordValidation.touched">
+          Please choose a Valid Password at least 10 character.
+        </div>
+
+        <div style="color: #00720f;" *ngIf="passwordValidation.valid && passwordValidation.touched">
+          Looks good!
+        </div>
+      </div>
+
+
+    </div>
 
 
 
 
+    <button *ngIf="active" class="btn btn-primary" type="submit" [disabled]="!SignUpDataForm.valid">SignUp</button>
+    <button style="float: right" (click)="onGoToLoginForm()" type="button" class="btn btn-outline-danger">Login</button>
+
+  </form>
+</div>
