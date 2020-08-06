@@ -3,22 +3,24 @@
 <div *ngIf="!length" style="margin:20vh 45vw;">
     <app-loading></app-loading>
 </div>
+
     <div *ngIf="length" class="row d-flex justify-content-center  Content" style="margin-top: 55px;" >
 
-        <section  class="col-md-12 Summary" >   
+        <section  class="col-md-12 Summary" >
             <div class="container Summary-det" style="box-shadow: 0px 0px 10px #a7a7a7; margin: 20px auto;">
                     <h1 class="text-center">Summary</h1>
                     <br><BR>
 
                     <ul class="list-group">
-                        <li class="list-group-item">
-                            <h5>Total Orders</h5> 
+                        <li class="list-group-item" style="border: 1px solid black">
+                            <h3>Total Orders</h3>
                             <small style="float:right ; font-size: 20px;">{{carts.length}} Orders</small>
                         </li>
-                      
-                        <li class="list-group-item">
-                            <h5>Total Price</h5> 
-                            <small style="float:right ; font-size: 20px;">{{price}}  EGY</small>
+                      <br>
+
+                        <li class="list-group-item" style="border: 1px solid black">
+                            <h3>Total Price</h3>
+                            <small style="float:right ; font-size: 20px;">{{price}}  EGP</small>
                         </li>
 
 
@@ -30,10 +32,10 @@
 
 
 
-        <section class=" col-md-12 offest-1 Items" style="height: 80vh;  background-color: white  ;overflow-y: scroll;" >
+        <section class=" col-md-12 " style="height: auto;   " >
 
             <table class="table">
-                <thead class="thead-dark">
+                <thead style="background-color: #edba5a">
                   <tr>
                     <th scope="col">Id</th>
                     <th scope="col">Image</th>
@@ -41,27 +43,27 @@
                     <th scope="col">Time</th>
                     <th scope="col">Price</th>
                     <th scope="col">Chef</th>
-                  </tr> 
+                  </tr>
                 </thead>
-                <tbody>
+                <tbody >
                   <tr  *ngFor="let cart of carts; let i = index">
                     <th scope="row">{{i}}</th>
-                    <td> <img [src] ='cart.image' style="width: 100px; height: 100ox; border-radius: 20px 0px; "> </td>
+                    <td> <img [src] ='cart.image' style="width: 100px;  border-radius: 20px 0px; "> </td>
 
-                    <td>   {{cart.name}}   </td>
+                    <td>  <strong> {{cart.name}} </strong>   </td>
 
-                    <td>{{cart.Time}}</td>
-                    <td>{{cart.price}}</td>
+                    <td>{{cart.Time.split(".")[0].replace("T"," -- ")}}</td>
+                    <td>{{cart.price}}  EGP</td>
                     <td> <a routerLink="/profile" [queryParams]="{email:cart.chefEmail }"> {{cart.chefEmail}} </a> </td>
                   </tr>
                 </tbody>
               </table>
-              
-              
-      
+
+
+
 
         </section>
 
-       
+
     </div>
 

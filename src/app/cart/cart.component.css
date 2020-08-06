@@ -1,9 +1,8 @@
 
 .Content{
     width: 90vw;
-    height: 90vh;
+    height: auto;
     margin: auto;
-    overflow: hidden;
 }
 
 .Content .Summary .Summary-det{

@@ -1,23 +1,23 @@
-<nav class="navbar fixed-top navbar-expand-lg  navbar-dark" style="background-color: #ececec;" >
+<nav class="navbar fixed-top navbar-expand-lg  navbar-dark" style="background-color: #efc344;" >
 
-  <a style="color: white" class="navbar-brand AskClass "> <span class="logo" style="color: black;">Homeey </span></a>
+  <a style="color: white" class="navbar-brand AskClass" routerLink="/home"> <span class="logo" style="color: black;">Homeey </span></a>
 
   <div class="collapse navbar-collapse">
 
-    <input type="search" class="form-control SearchInput"  style="      border-radius:30px 0px;    " placeholder="Search for people or prodect"
+    <input type="search" class="form-control SearchInput"  style="border-radius:15px 0px;    " placeholder="Search for people or prodect"
       (change)='onSearchProduct($event)'>
 
 
     <ul class="navbar-nav m-auto">
-      <li class="nav-item my-2 my-lg-0 ">
-        <a class="nav-link" routerLink="/home"> <span class="fa fa-home"
-            style="font-size: 20px; width:50px; text-align: center; color: #575656;" ></span></a>
-      </li>
+<!--      <li class="nav-item my-2 my-lg-0 ">-->
+<!--        <a class="nav-link" routerLink="/home"> <span class="fa fa-home"-->
+<!--            style="font-size: 20px; width:50px; text-align: center; color: #575656;" ></span></a>-->
+<!--      </li>-->
 
-      <li class="nav-item my-2 my-lg-0 " *ngIf="login" (click)="onShowNotifications()">
+      <li class="nav-item my-2 my-lg-0"  *ngIf="login" (click)="onShowNotifications()">
         <a class="nav-link">
-          <span class="fa fa-bell" style="font-size: 20px; width:50px; text-align: center; color: #575656;"></span>
-          <span *ngIf='disAppearnumberOfNots &&  !open' class="badge badge-danger "
+          <span class="fa fa-bell" style="font-size: 20px; width:50px; text-align: center; color: #453a2f;"></span>
+          <span  *ngIf='disAppearnumberOfNots &&  !open' class="badge badge-danger "
             style="font-size: 13px;" >{{RealNumbeOfNotificatios}}</span>
         </a>
       </li>

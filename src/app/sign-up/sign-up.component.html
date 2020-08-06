@@ -2,12 +2,15 @@
 <div class="MyContainer">
   <form (ngSubmit)="onSignUpDataFunction()" #SignUpDataForm="ngForm">
 
+    <h3 style="margin: 20px 0px;">SignUp</h3>
+
     <div class="alert alert-danger" role="alert" *ngIf="emailFound">
       May be this account is already found
     </div>
 
 
     <div class="form-row">
+      <label>Your Photo</label>
       <div class="col-md-12 mb-3">
         <input type="file" class="form-control" ngModel name="IMAGE" required (change)="showPreviewImage($event)">
       </div>

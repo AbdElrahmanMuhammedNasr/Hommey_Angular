@@ -12,19 +12,24 @@
     <app-loading></app-loading>
   </div>
 
+
+
+<!--  /***********************************************************************************************/-->
   <div *ngIf="product != null" >
 
     <div class="form-row">
 
       <div class="form-group col-md-5  d-sm-none d-md-block" style="height: 400px">
 
-        <img  [src]=product.image  style="border-radius: 25px; width: 120%;">
-
+        <img  [src]=product.image  style=" border-radius: 25px; width: 120%; height: 90%">
       </div>
+
+      <!--  /***********************************************************************************************/-->
+
 
       <div class="form-group  col-md-7 col-sm-12" >
 
-        <div class="card" style="float: right;min-width: 0vw;">
+        <div class="card" style="float: right;min-width: 0vw;border-radius: 20px">
           <div class="card-body">
 
             <div class="container" style="min-width: 25vw;">
@@ -33,7 +38,7 @@
                 <p class="card-text" style="color: black"> <small>Time</small> : <strong>{{product.time}} min</strong> </p>
                 <p class="card-text" style="color: black"> <small>Category</small> : <strong>{{product.category}}</strong> </p>
                 <p class="card-text" style="color: black"> <small>Address</small> : <strong>{{product.address}}</strong> </p>
-                <p class="card-text" style="color: black"> <small>Discription</small> : <strong>{{product.dis}}</strong></p>
+                <p class="card-text" style="color: black"> <small>Description</small> : <strong>{{product.dis}}</strong></p>
            </section>
            <br>
               <button class="orderButton card-link btn btn-primary" style="float: right" *ngIf="isLogin!=null && !order && manageOrder "
@@ -49,7 +54,7 @@
       </div>
     </div>
 
-
+    <!--  /***********************************************************************************************/-->
     <!-- /***********************************************************************************************/ -->
     <div class="form-row">
 
@@ -65,29 +70,28 @@
 
       </div>
 
+      <!--  /***********************************************************************************************/-->
 
       <div class="form-group col-xl-6 col-md-6" style="max-height: 10vh; ">
 
-        <section class="col-md-12 d-flex ">
-          <h3  style="margin-top: -40px;"> Chef</h3>
-        </section>
+<!--        <section class="col-md-12 d-flex ">-->
+<!--          <h3  style="margin-top: -40px;"> Chef</h3>-->
+<!--        </section>-->
 
-        <div class="card" style="float: right" style="min-width: 0px;">
+        <div  >
           <div class="card-body">
             <div class="card-title">
               <div class="row">
 
 
-
                 <section class="col-md-12 d-flex justify-content-center">
                   <img [src]='user.image' class="chefPhoto " style="width: 100px; height: 100px; border-radius: 50%">
                 </section>
-                
 
-                <section style="margin: 0px ; padding: 10px 30px; max-height: 10vh;" >
+
+                <section  style="margin: 0px ; width: 100% ;text-align: center; padding: 10px 30px; max-height: 10vh;" >
                   <h4 class="card-title"> <strong> {{user.firstName}} {{user.lastName}} </strong> </h4><br>
-                  <h6 class="card-title"> <a routerLink="/profile" [queryParams]="{email:user.email }"> {{user.email}}
-                    </a> </h6><br>
+                  <h6 class="card-title"> <a routerLink="/profile" [queryParams]="{email:user.email }"> {{user.email}}</a> </h6><br>
                   <h6 class="card-title"> {{user.phone}} </h6>
                 </section>
 

@@ -34,11 +34,11 @@ export class AddproductComponent implements OnInit {
   }
 
   category = [
-    'Breakfast',
-    'Lunch',
-    'Dinner',
-    'Vegan',
-    'Juice',
+    'Drink',
+    'Food',
+    'Pottery',
+    'Handicrafts',
+    'Other'
   ]
 
   onAddNewPro() {

@@ -15,18 +15,21 @@ export class HeaderComponent implements OnInit , DoCheck {
 
   disAppearnumberOfNots; // from state
   constructor(private router: Router,
-     private store: Store<any>, 
-     private notesService: NotesService,
-     private userServie: UserService,
+              private store: Store<any>,
+              private notesService: NotesService,
+              private userServie: UserService,
      ) {
-    this.store.subscribe( data =>{
+    this.store.subscribe( data => {
         this.disAppearnumberOfNots = data.open.notifications_number;
-    })
+    });
   }
   clickPhoto = false;
   clickBell = false;
   RealNumbeOfNotificatios ;
-  USER = null;
+  USER = {
+    image:'',
+    firstName: '',
+  };
 
   open = false;
 
@@ -37,9 +40,9 @@ export class HeaderComponent implements OnInit , DoCheck {
   ngOnInit(): void {
     this.theRole = localStorage.getItem('Role');
     console.log(this.theRole);
-    
+
     this.ongetUser();
-    
+
     //  to get the number of notif..
     this.notesService.getAllUserNotifications(localStorage.getItem('theEmail')).subscribe(
       data =>{
@@ -60,7 +63,7 @@ export class HeaderComponent implements OnInit , DoCheck {
     this.clickPhoto = ! this.clickPhoto;
   }
   onShowNotifications() {
-     //to change state
+     // to change state
         // this.store.dispatch({type: "OPEN_NOTIFICATIONS" });
       // to display notes
       this.open = true;

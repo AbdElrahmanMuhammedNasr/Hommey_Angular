@@ -10,7 +10,7 @@ export class LoginService {
 
   role;
 
-  login(email: String, password: String) {
+  login(email: string, password: string) {
     return this.http.get('https://hommey-b9aa6.firebaseio.com/Login.json').pipe(
       map(resData => {
         for (const key in resData) {
@@ -24,7 +24,7 @@ export class LoginService {
       })
     );
   }
-  checkLogin(email: String) {
+  checkLogin(email: string) {
     return this.http.get('https://hommey-b9aa6.firebaseio.com/Login.json').pipe(
       map(resData => {
         for (const key in resData) {
